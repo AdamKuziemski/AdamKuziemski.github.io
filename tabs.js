@@ -3,14 +3,18 @@ class TabComponent {
     tabSwipeStart = 0;
     tabSwipePosition = 0;
 
+    tabsContainer = null;
+    tabBar = null;
     tabs = [];
     content = [];
 
     constructor() {
-        const tabsContainer = document.getElementById('tabs');
-	    tabsContainer.addEventListener('touchstart', (event) => this.startSwipe(event), {passive: true});
-	    tabsContainer.addEventListener('touchmove', (event) => this.moveSwipe(event), {passive: true});
-        tabsContainer.addEventListener('touchend', () => this.endSwipe(), {passive: true});
+        this.tabBar = document.getElementsByClassName('tab-bar')[0];
+
+        this.tabsContainer = document.getElementById('tabs');
+	    this.tabsContainer.addEventListener('touchstart', (event) => this.startSwipe(event), {passive: true});
+	    this.tabsContainer.addEventListener('touchmove', (event) => this.moveSwipe(event), {passive: true});
+        this.tabsContainer.addEventListener('touchend', () => this.endSwipe(), {passive: true});
         
         this.tabs = [...document.getElementsByClassName('tab')];
         this.tabs.forEach(tab => tab.addEventListener('click', (event) => this.openClicked(event)));
@@ -21,12 +25,13 @@ class TabComponent {
     }
 
     openTab(newIndex) {
-        this.tabs.forEach(tab => tab.className = tab.className.replace(' tab-open', ''));
-        this.tabs[newIndex].className += ' tab-open';
+        this.tabs.forEach(tab => tab.classList.remove('tab-open'));
+        this.tabs[newIndex].classList.add('tab-open');
     
         this.content.forEach((tab, i) => {
             tab.style.display = i === newIndex ? 'block' : 'none';
-            tab.className = tab.className.replace(' animate-left', '').replace(' animate-right', '');
+            tab.classList.remove('animate-left');
+            tab.classList.remove('animate-right');
         });
         this.content[newIndex].className += this.getTabAnimation(newIndex);
     
@@ -42,12 +47,24 @@ class TabComponent {
             return '';
         }
     };
+
+    linearizeTabs() {
+        this.tabsContainer.style.overflowY = 'hidden';
+        this.tabBar.style.display = 'none';
+        this.content.forEach(tab => tab.style.display = 'block');
+    }
+
+    displayTabs() {
+        this.tabsContainer.style.overflowY = 'auto';
+        this.tabBar.style.display = 'grid';
+        this.openTab(this.currentlyOpenTab);
+    }
     
     startSwipe(event) {
         this.tabSwipeStart = event.touches[0].pageX;
         this.tabSwipePosition = 0;
     }
-    
+
     moveSwipe(event) {
         this.tabSwipePosition = event.touches[0].pageX;
     }
