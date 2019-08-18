@@ -49,14 +49,10 @@ class TabComponent {
     };
 
     linearizeTabs() {
-        this.tabsContainer.style.overflowY = 'hidden';
-        this.tabBar.style.display = 'none';
         this.content.forEach(tab => tab.style.display = 'block');
     }
 
     displayTabs() {
-        this.tabsContainer.style.overflowY = 'auto';
-        this.tabBar.style.display = 'grid';
         this.openTab(this.currentlyOpenTab);
     }
     

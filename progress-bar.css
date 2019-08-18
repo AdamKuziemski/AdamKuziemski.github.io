@@ -1,0 +1,29 @@
+#progress-bar {
+    width: var(--full-without-spacing);
+    margin: var(--sides-only-small);
+    height: 24px;
+    position: relative;
+
+    text-align: left;
+
+    background-color: #f8f8f8;
+    border: 1px solid var(--line-color);
+    border-radius: 0.2em;
+}
+
+#progress-bar:before {
+    content: attr(data-label);
+    font-size: 0.8em;
+    position: absolute;
+    text-align: center;
+    top: 5px;
+    left: 0;
+    right: 0;
+}
+
+#progress-bar > #fill {
+    background-color: orange;
+    height: 100%;
+    display: inline-block;
+    transition: width 0.2s ease-in-out;
+}

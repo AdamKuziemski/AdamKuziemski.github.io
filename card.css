@@ -1,0 +1,27 @@
+.card {
+    margin: var(--spacing-small);
+    padding: var(--spacing-small) 0;
+    border: 1px solid var(--line-color);
+    box-shadow: var(--mat-shadow);
+}
+
+.card:before {
+    content: attr(title);
+    font-size: 1.17em;
+    font-weight: bold;
+    padding: var(--spacing-small);
+}
+
+.card > header {
+    padding: var(--sides-only-small);
+}
+
+.card > footer {
+    padding: var(--sides-only-small);
+    border-top: 1px solid var(--line-color);
+}
+
+.card .card-content {
+    border-top: 1px solid var(--line-color);
+    padding: var(--sides-only-small);
+}
