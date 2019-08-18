@@ -83,6 +83,16 @@
     position: relative;
 }
 
+@media print {
+    .tab-body::before {
+        margin: var(--sides-only-small);
+        line-height: 32px;
+        content: attr(data-label);
+        font-size: 1.25em;
+        border-bottom: 1px solid var(--line-color);
+    }
+}
+
 .animate-left {
     animation: slideleft 0.4s;
 }
