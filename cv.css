@@ -5,17 +5,21 @@
     --line-color: #e9e9e9;
 }
 
-body {
-    font-family: 'Courier New', Courier, monospace;
-    overflow: hidden;
+.skill-trees-tab {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
-body > header {
+.skill-tree {
+    padding: var(--spacing-small) 0;
+    display: grid;
+    grid-gap: var(--spacing-small);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.tree-header {
+    font-weight: bold;
     text-align: center;
-}
-
-h4, h5, h6 {
-    margin: 0;
 }
 
 .card {
@@ -33,7 +37,6 @@ h4, h5, h6 {
 
 .card > header {
     padding: var(--sides-only-small);
-    border-bottom: 1px solid var(--line-color);
 }
 
 .card > footer {
@@ -42,6 +45,7 @@ h4, h5, h6 {
 }
 
 .card .card-content {
+    border-top: 1px solid var(--line-color);
     padding: var(--sides-only-small);
 }
 
@@ -85,6 +89,19 @@ h4, h5, h6 {
 
 .animate-right {
     animation: slideright 0.4s;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+}
+
+body > header {
+    text-align: center;
+}
+
+h4, h5, h6 {
+    margin: 0;
 }
 
 #progress-bar {
