@@ -38,6 +38,7 @@
 
     .tab-container {
         overflow-y: hidden;
+        height: fit-content;
     }
     
     .tab-body::before {
