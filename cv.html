@@ -1,45 +1,46 @@
+<!DOCTYPE html>
 <html>
 
 <head>
     <title>Adam Kuziemski's Curriculum Vitae</title>
 
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <link rel="stylesheet" href="cv.css" />
     <link rel="stylesheet" href="progress-bar.css" />
     <link rel="stylesheet" href="tabs.css" />
     <link rel="stylesheet" href="card.css" />
+    <link rel="stylesheet" href="skill-tree.css" />
 
-    <script type="text/javascript" src="tabs.js"></script>
-    <script type="text/javascript" src="progress-bar.js"></script>
-    <script type="text/javascript" src="cv.js"></script>
+    <script type="text/javascript" src="./tabs.js"></script>
+    <script type="text/javascript" src="./progress-bar.js"></script>
+    <script type="text/javascript" src="./cv.js"></script>
 </head>
 
 <body>
-    <header>
+    <header class="card">
         <h2>Adam Kuziemski</h2>
         <div id="progress-bar" data-label="Level 0 programmer">
             <div id="fill"></div>
         </div>
-        <div class="tab-bar">
+        <div id="tab-bar">
             <div class="tab">
                 Experience
             </div>
             <div class="tab">
-                Education
+                Stuff
             </div>
             <div class="tab">
                 Skills
             </div>
             <div class="tab">
-                Interests
-            </div>
-            <div class="tab">
-                Side projects
+                Contact info
             </div>
         </div>
     </header>
 
-    <div class="tab-container" id="tabs">
-        <div class="tab-body" data-label="Experience">
+    <div id="tab-container">
+        <div class="tab-body" data-label="About me">
             <div class="card" title="Accenture Services">
                 <header>
                     <h5>01.07.2017 - present</h5>
@@ -70,13 +71,42 @@
             </div>
         </div>
 
-        <div class="tab-body" data-label="Education">
+        <div class="tab-body" data-label="Stuff">
             <div class="card" title="Education">
                 <header>
                     Lorem ipsum
                 </header>
                 <div class="card-content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Non diam phasellus vestibulum lorem sed risus. Tincidunt id aliquet risus
+                    feugiat in. Eget velit aliquet sagittis id consectetur purus ut faucibus. At urna condimentum mattis
+                    pellentesque id nibh tortor id. Sed vulputate mi sit amet mauris. Augue ut lectus arcu bibendum at
+                    varius vel pharetra. Risus at ultrices mi tempus. Nisl tincidunt eget nullam non nisi est sit amet.
+                    Pellentesque id nibh tortor id aliquet. Cursus turpis massa tincidunt dui ut ornare lectus sit amet.
+                    Porttitor eget dolor morbi non arcu. Accumsan in nisl nisi scelerisque. Morbi tristique senectus et
+                    netus et malesuada fames ac turpis. Urna cursus eget nunc scelerisque viverra mauris. Nec
+                    ullamcorper sit amet risus. Fermentum leo vel orci porta non pulvinar neque laoreet suspendisse.
+                    Mauris commodo quis imperdiet massa. Eget egestas purus viverra accumsan. Justo donec enim diam
+                    vulputate ut pharetra sit amet.
+                </div>
+            </div>
+
+            <div class="card" title="Interests">
+                <header>
                     Lorem ipsum
+                </header>
+                <div class="card-content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Non diam phasellus vestibulum lorem sed risus. Tincidunt id aliquet risus
+                    feugiat in. Eget velit aliquet sagittis id consectetur purus ut faucibus. At urna condimentum mattis
+                    pellentesque id nibh tortor id. Sed vulputate mi sit amet mauris. Augue ut lectus arcu bibendum at
+                    varius vel pharetra. Risus at ultrices mi tempus. Nisl tincidunt eget nullam non nisi est sit amet.
+                    Pellentesque id nibh tortor id aliquet. Cursus turpis massa tincidunt dui ut ornare lectus sit amet.
+                    Porttitor eget dolor morbi non arcu. Accumsan in nisl nisi scelerisque. Morbi tristique senectus et
+                    netus et malesuada fames ac turpis. Urna cursus eget nunc scelerisque viverra mauris. Nec
+                    ullamcorper sit amet risus. Fermentum leo vel orci porta non pulvinar neque laoreet suspendisse.
+                    Mauris commodo quis imperdiet massa. Eget egestas purus viverra accumsan. Justo donec enim diam
+                    vulputate ut pharetra sit amet.
                 </div>
             </div>
         </div>
@@ -91,27 +121,35 @@
                             <div>REST</div>
 
                             <div>TDD</div>
-                            <div>ipsum</div>
-                            <div>dolor</div>
+                            <div>Angular CLI</div>
+                            <div>Visual Studio Code</div>
+
+                            <div>Scrum</div>
+                            <div></div>
+                            <div></div>
                         </div>
                     </div>
                 </div>
                 <div class="card" title="Web development">
                     <div class="card-content">
                         <div class="skill-tree">
-                            <div class="tree-header">Tagging(?)</div>
+                            <div class="tree-header">Layout</div>
                             <div class="tree-header">Code</div>
                             <div class="tree-header">Look n' feel</div>
 
                             <div>HTML 5</div>
-                            <div>JavaScript (ES6)</div>
+                            <div>JavaScript</div>
                             <div>CSS 3</div>
 
-                            <div><!-- intentionally empty --></div>
+                            <div>
+                                <!-- intentionally empty -->
+                            </div>
                             <div>Node.js</div>
                             <div>CSS Grid</div>
 
-                            <div><!-- intentionally empty --></div>
+                            <div>
+                                <!-- intentionally empty -->
+                            </div>
                             <div>TypeScript</div>
                             <div>Sass</div>
 
@@ -119,40 +157,29 @@
                             <div>RxJS</div>
                             <div>Angular Material</div>
 
-                            <div>Angular CLI</div>
+                            <div>Wat</div>
                             <div>Karma/Jasmine</div>
-                            <div><!-- intentionally empty --></div>
+                            <div>
+                                <!-- intentionally empty -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="tab-body" data-label="Interests">
-            <div class="card" title="Interests">
-                <header>
-                    Lorem ipsum
-                </header>
+        <div class="tab-body">
+            <div class="card" title="Contact info">
                 <div class="card-content">
-                    Lorem ipsum
-                </div>
-            </div>
-        </div>
-
-        <div class="tab-body" data-label="Side projects">
-            <div class="card" title="Side projects">
-                <header>
-                    Lorem ipsum
-                </header>
-                <div class="card-content">
-                    Lorem ipsum
+                    <p>Mobile: 605 044 898</p>
+                    <p>E-mail: <a href="mailto:kuziemski.a@gmail.com">kuziemski.a@gmail.com</a></p>
                 </div>
             </div>
         </div>
     </div>
 
     <footer>
-        <h3>Boom</h3>
+        Boom
     </footer>
 </body>
 

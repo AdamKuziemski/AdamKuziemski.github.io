@@ -7,6 +7,10 @@
 		tabs = new TabComponent();
 	};
 
+	window.onresize = () => {
+		tabs.displayTabs();
+	}
+
 	window.onbeforeprint = () => {
 		tabs.linearizeTabs();
 		progressBar.setLevelAndExperience();

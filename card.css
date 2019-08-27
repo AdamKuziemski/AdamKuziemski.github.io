@@ -3,6 +3,7 @@
     padding: var(--spacing-small) 0;
     border: 1px solid var(--line-color);
     box-shadow: var(--mat-shadow);
+    border-radius: 0.2em;
 }
 
 .card:before {

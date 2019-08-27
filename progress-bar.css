@@ -27,3 +27,10 @@
     display: inline-block;
     transition: width 0.2s ease-in-out;
 }
+
+@media print {
+    #progress-bar {
+        border: none;
+        margin: 0;
+    }
+}

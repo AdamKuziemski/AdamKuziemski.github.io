@@ -1,12 +1,8 @@
 class ProgressBar {
-    birthday = new Date('12 Jan 1991 13:05');
-
-    bar = null;
-    fill = null;
-
     constructor() {
-        this.bar = document.getElementById('progress-bar');
-        this.fill = document.getElementById('fill');
+        /** @private {Date} */ this.birthday = new Date('12 Jan 1991 13:05');
+        /** @private {HTMLDivElement} */ this.bar = document.getElementById('progress-bar');
+        /** @private {HTMLDivElement} */ this.fill = document.getElementById('fill');
 
         this.fill.style.width = '0%';
 
