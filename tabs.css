@@ -2,7 +2,7 @@
     margin: var(--spacing-small);
     width: var(--full-without-spacing);
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 #tab-bar > .tab:not(:last-child) {
@@ -32,11 +32,19 @@
 }
 
 .tab-scrolled-top {
-    box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.4);
+    box-shadow: inset 0 7px 9px -7px #CCC;
 }
 
-.tab-scrolled-bottom {
-    box-shadow: inset 0 -7px 9px -7px rgba(0,0,0,0.4);
+#skills {
+    display: block;
+    grid-template-columns: none;
+}
+
+@media screen and (min-width: 800px), print {
+    #skills {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
 }
 
 @media print {

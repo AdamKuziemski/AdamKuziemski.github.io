@@ -1,3 +1,5 @@
+@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.207/distr/fira_code.css);
+
 :root {
     --spacing-small: 8px;
     --sides-only-small: 0 var(--spacing-small);
@@ -6,26 +8,17 @@
     --mat-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
 }
 
-.animate-left {
-    animation: slideleft 0.4s;
-}
-
-.animate-right {
-    animation: slideright 0.4s;
-}
-
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Fira Code', monospace;
     overflow: hidden;
     margin: 0;
     height: 100vh;
 
     display: grid;
-    grid-template-rows: auto 1fr 32px;
+    grid-template-rows: auto 1fr;
     grid-template-areas: 
         "header"
-        "tabs"
-        "footer";
+        "tabs";
 }
 
 body > header::before {
@@ -51,6 +44,14 @@ h4, h5, h6 {
 
 a {
     text-decoration: none;
+}
+
+.animate-left {
+    animation: slideleft 0.4s;
+}
+
+.animate-right {
+    animation: slideright 0.4s;
 }
 
 @media print {

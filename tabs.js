@@ -122,17 +122,23 @@ class TabComponent {
      * Hides/displays inset shadows on top/bottom according to scroll position
      */
     hideOrDisplayScrollShadow() {
-        if (this.tabsContainer.scrollTop === 0) {
-            this.tabsContainer.classList.remove('tab-scrolled-top');
+        if (this.isScrolledToTop()) {
+            this.removeShadow();
         } else {
-            this.tabsContainer.classList.add('tab-scrolled-top');
+            this.addShadow();
         }
+    }
 
-        if (this.tabsContainer.scrollTop + this.tabsContainer.clientHeight === this.tabsContainer.scrollHeight) {
-            this.tabsContainer.classList.remove('tab-scrolled-bottom');
-        } else {
-            this.tabsContainer.classList.add('tab-scrolled-bottom');
-        }
+    isScrolledToTop() {
+        return this.tabsContainer.scrollTop === 0;
+    }
+
+    addShadow() {
+        this.tabsContainer.classList.add('tab-scrolled-top');
+    }
+
+    removeShadow() {
+        this.tabsContainer.classList.remove('tab-scrolled-top');
     }
     
     /**

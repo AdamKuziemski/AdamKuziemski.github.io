@@ -25,22 +25,27 @@
         </div>
         <div id="tab-bar">
             <div class="tab">
-                Experience
-            </div>
-            <div class="tab">
-                Stuff
+                About
             </div>
             <div class="tab">
                 Skills
             </div>
             <div class="tab">
-                Contact info
+                Stuff
             </div>
         </div>
     </header>
 
     <div id="tab-container">
         <div class="tab-body" data-label="About me">
+
+            <div id="contact" class="card" title="Contact info">
+                <div class="card-content">
+                    <p>Mobile: 605 044 898</p>
+                    <p>E-mail: <a href="mailto:kuziemski.a@gmail.com">kuziemski.a@gmail.com</a></p>
+                </div>
+            </div>
+
             <div class="card" title="Accenture Services">
                 <header>
                     <h5>01.07.2017 - present</h5>
@@ -52,7 +57,7 @@
                         <li>Development and maintenance of a hybrid mobile/web app (Cordova for iOS) in Angular 4.
                             Refactoring components and services, creating route guards, juggling REST requests.</li>
                         <li>Development and maintenance of a rewrite of said app into SalesForce Aura/Lightning
-                            framework. </li>
+                            framework.</li>
                     </ul>
                 </div>
             </div>
@@ -68,6 +73,54 @@
                         <li>Development of a mobile app for Android 4</li>
                     </ul>
                 </div>
+            </div>
+            
+        </div>
+
+        <div class="tab-body" data-label="Skills">
+            <div id="skills">
+
+                <div class="card" title="JavaScript">
+                    <header>
+                        ES6
+                    </header>
+                    <div class="card-content">
+                        <p>Array.map, Array.reduce</p>
+                        <p>TypeScript</p>
+                        <p>Node.js</p>
+                    </div>
+                </div>
+
+                <div class="card" title="Angular">
+                    <header>
+                        Versions 5 - 8, 4 if needed
+                    </header>
+                    <div class="card-content">
+                        <p>Angular Material</p>
+                        <p>Angular CLI</p>
+                        <p>Karma/Jasmine</p>
+                        <p>RxJS</p>
+                    </div>
+                </div>
+
+                <div class="card" title="CSS">
+                    <div class="card-content">
+                        <p>CSS3</p>
+                        <p>CSS Grid</p>
+                        <p>Sass</p>
+                    </div>
+                </div>
+
+                <div class="card" title="Other">
+                    <div class="card-content">
+                        <p>Refactoring</p>
+                        <p>TDD</p>
+                        <p>REST</p>
+                        <p>Git</p>
+                        <p>Scrum</p>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -111,76 +164,7 @@
             </div>
         </div>
 
-        <div class="tab-body" data-label="Skills">
-            <div class="skill-trees-tab">
-                <div class="card" title="General programming">
-                    <div class="card-content">
-                        <div class="skill-tree">
-                            <div>Refactoring</div>
-                            <div>Git</div>
-                            <div>REST</div>
-
-                            <div>TDD</div>
-                            <div>Angular CLI</div>
-                            <div>Visual Studio Code</div>
-
-                            <div>Scrum</div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" title="Web development">
-                    <div class="card-content">
-                        <div class="skill-tree">
-                            <div class="tree-header">Layout</div>
-                            <div class="tree-header">Code</div>
-                            <div class="tree-header">Look n' feel</div>
-
-                            <div>HTML 5</div>
-                            <div>JavaScript</div>
-                            <div>CSS 3</div>
-
-                            <div>
-                                <!-- intentionally empty -->
-                            </div>
-                            <div>Node.js</div>
-                            <div>CSS Grid</div>
-
-                            <div>
-                                <!-- intentionally empty -->
-                            </div>
-                            <div>TypeScript</div>
-                            <div>Sass</div>
-
-                            <div>Angular 5-8</div>
-                            <div>RxJS</div>
-                            <div>Angular Material</div>
-
-                            <div>Wat</div>
-                            <div>Karma/Jasmine</div>
-                            <div>
-                                <!-- intentionally empty -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="tab-body">
-            <div class="card" title="Contact info">
-                <div class="card-content">
-                    <p>Mobile: 605 044 898</p>
-                    <p>E-mail: <a href="mailto:kuziemski.a@gmail.com">kuziemski.a@gmail.com</a></p>
-                </div>
-            </div>
-        </div>
     </div>
-
-    <footer>
-        Boom
-    </footer>
 </body>
 
 </html>
