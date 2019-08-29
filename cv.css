@@ -46,6 +46,13 @@ a {
     text-decoration: none;
 }
 
+.text-separator {
+    width: fit-content;
+    margin: var(--sides-only-small);
+    line-height: 32px;
+    border-bottom: 1px solid var(--line-color);
+}
+
 .animate-left {
     animation: slideleft 0.4s;
 }
