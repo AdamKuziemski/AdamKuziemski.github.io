@@ -9,6 +9,9 @@ class ProgressBar {
 		setInterval(() => this.setLevelAndExperience(), 1000);
     }
 
+    /**
+     * sets age/level and adjusts the experience bar
+     */
 	setLevelAndExperience() {
 		const today = new Date().getTime();
 
@@ -19,6 +22,12 @@ class ProgressBar {
 		this.fill.style.width = progress.toFixed(2) + '%';
     };
     
+    /**
+     * @private
+     * Calculates next birthday's Unix time
+     * @param {number} age 
+     * @returns {number} Unix time of the next birthday
+     */
     getNextBirthday(age) {
         return new Date(
             this.birthday.getUTCFullYear() + age + 1,
