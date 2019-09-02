@@ -1,9 +1,16 @@
+class Point2d {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
 class TabComponent {
     constructor() {
         /** @private {number} */ this.currentlyOpenTab = 0;
-        /** @private {number} */ this.tabSwipeStart = 0;
-        /** @private {number} */ this.tabSwipePosition = 0;
-        /** @private {number} */ this.tabSwipeThreshold = 50;
+        /** @private {Point2d} */ this.swipeStart = new Point2d(0, 0);
+        /** @private {Point2d} */ this.swipePosition = new Point2d(0, 0);
+        /** @private {number} */ this.swipeThreshold = 50;
 
         /** @private {HTMLDivElement} */ this.tabBar = document.getElementById('tab-bar');
         /** @private {HTMLDivElement} */ this.tabsContainer = document.getElementById('tab-container');
@@ -63,8 +70,10 @@ class TabComponent {
      * @param {TouchEvent} event 
      */
     startSwipe(event) {
-        this.tabSwipeStart = event.touches[0].pageX;
-        this.tabSwipePosition = 0;
+        this.swipeStart.x = event.touches[0].pageX;
+        this.swipeStart.y = event.touches[0].pageY;
+        this.swipePosition.x = 0;
+        this.swipePosition.y = 0;
     }
 
     /**
@@ -74,7 +83,8 @@ class TabComponent {
      * @param {TouchEvent} event 
      */
     moveSwipe(event) {
-        this.tabSwipePosition = event.touches[0].pageX;
+        this.swipePosition.x = event.touches[0].pageX;
+        this.swipePosition.y = event.touches[0].pageY;
     }
     
     /**
@@ -82,7 +92,7 @@ class TabComponent {
      * Calculates the direction of the swipe and opens the appropriate tab.
      */
     endSwipe() {
-        if (this.didNotSwipe()) {
+        if (this.didNotSwipe() || this.isVerticalSwipe()) {
             return;
         }
 
@@ -98,7 +108,7 @@ class TabComponent {
      * @returns {boolean} whether a swiped distance and direction was enough to trigger a right swipe
      */
     isRightSwipe() {
-        return this.getSwipeDistance() < -this.tabSwipeThreshold;
+        return this.getSwipeDistance() < -this.swipeThreshold;
     }
 
     /**
@@ -106,15 +116,16 @@ class TabComponent {
      * @returns {boolean} whether a swiped distance and direction was enough to trigger a left swipe
      */
     isLeftSwipe() {
-        return this.getSwipeDistance() > this.tabSwipeThreshold;
+        return this.getSwipeDistance() > this.swipeThreshold;
     }
 
     /**
      * @private
-     * @returns {number} calculated swipe distance
+     * @param {'x' | 'y'} axis to calculate distance on
+     * @returns {number} calculated swipe distance if axis is correct, otherwise zero
      */
-    getSwipeDistance() {
-        return this.tabSwipeStart - this.tabSwipePosition;
+    getSwipeDistance(axis = 'x') {
+        return axis === 'x' || axis === 'y' ? this.swipeStart[axis] - this.swipePosition[axis] : 0;
     }
 
     /**
@@ -122,7 +133,15 @@ class TabComponent {
      * @returns {boolean} whether a touchmove event was triggered to overwrite the swipe position
      */
     didNotSwipe() {
-        return this.tabSwipePosition === 0;
+        return this.swipePosition.x === 0;
+    }
+
+    /**
+     * @private
+     * @returns {boolean} whether a swipe direction was horizontal
+     */
+    isVerticalSwipe() {
+        return this.getSwipeDistance('y') < -this.swipeThreshold || this.getSwipeDistance('y') > this.swipeThreshold;
     }
 
     /**
