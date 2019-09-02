@@ -3,6 +3,7 @@ class TabComponent {
         /** @private {number} */ this.currentlyOpenTab = 0;
         /** @private {number} */ this.tabSwipeStart = 0;
         /** @private {number} */ this.tabSwipePosition = 0;
+        /** @private {number} */ this.tabSwipeThreshold = 50;
 
         /** @private {HTMLDivElement} */ this.tabBar = document.getElementById('tab-bar');
         /** @private {HTMLDivElement} */ this.tabsContainer = document.getElementById('tab-container');
@@ -81,14 +82,63 @@ class TabComponent {
      * Calculates the direction of the swipe and opens the appropriate tab.
      */
     endSwipe() {
-        const tabSwipeThreshold = 50;
-        const swipeChange = this.tabSwipeStart - this.tabSwipePosition;
-        
-        if (swipeChange < -tabSwipeThreshold && this.currentlyOpenTab > 0) {
+        if (this.didNotSwipe()) {
+            return;
+        }
+
+        if (this.isRightSwipe() && !this.isFirstTabOpen()) {
             this.openTab(this.currentlyOpenTab - 1);
-        } else if (swipeChange > tabSwipeThreshold && this.currentlyOpenTab < this.tabs.length - 1) {
+        } else if (this.isLeftSwipe() && !this.isLastTabOpen()) {
             this.openTab(this.currentlyOpenTab + 1);
         }
+    }
+
+    /**
+     * @private
+     * @returns {boolean} whether a swiped distance and direction was enough to trigger a right swipe
+     */
+    isRightSwipe() {
+        return this.getSwipeDistance() < -this.tabSwipeThreshold;
+    }
+
+    /**
+     * @private
+     * @returns {boolean} whether a swiped distance and direction was enough to trigger a left swipe
+     */
+    isLeftSwipe() {
+        return this.getSwipeDistance() > this.tabSwipeThreshold;
+    }
+
+    /**
+     * @private
+     * @returns {number} calculated swipe distance
+     */
+    getSwipeDistance() {
+        return this.tabSwipeStart - this.tabSwipePosition;
+    }
+
+    /**
+     * @private
+     * @returns {boolean} whether a touchmove event was triggered to overwrite the swipe position
+     */
+    didNotSwipe() {
+        return this.tabSwipePosition === 0;
+    }
+
+    /**
+     * @private
+     * @returns {boolean} whether currently open tab is the first one
+     */
+    isFirstTabOpen() {
+        return this.currentlyOpenTab === 0;
+    }
+
+    /**
+     * @private
+     * @returns {boolean} whether currently open tab is the last one
+     */
+    isLastTabOpen() {
+        return this.currentlyOpenTab === this.tabs.length - 1;
     }
 
     /**
@@ -129,14 +179,26 @@ class TabComponent {
         }
     }
 
+    /**
+     * @private
+     * @returns {boolean} whether the tabs container is scrolled to top 
+     */
     isScrolledToTop() {
         return this.tabsContainer.scrollTop === 0;
     }
 
+    /**
+     * @private
+     * Adds a shadow to the tabs container
+     */
     addShadow() {
         this.tabsContainer.classList.add('tab-scrolled-top');
     }
 
+    /**
+     * @private
+     * Removes shadow from the tabs container
+     */
     removeShadow() {
         this.tabsContainer.classList.remove('tab-scrolled-top');
     }

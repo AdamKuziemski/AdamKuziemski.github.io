@@ -40,8 +40,18 @@
     grid-template-columns: none;
 }
 
+#interests {
+    display: block;
+    grid-template-columns: none;
+}
+
 @media screen and (min-width: 800px), print {
     #skills {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+    #interests {
         display: grid;
         grid-template-columns: 50% 50%;
     }
@@ -58,11 +68,16 @@
         box-shadow: none;
     }
 
+    #about {
+        margin-bottom: 48px;
+    }
+
     .tab-body::before {
         margin: var(--sides-only-small);
         line-height: 32px;
         content: attr(data-label);
         font-size: 1.25em;
+        font-weight: bold;
         border-bottom: 1px solid var(--line-color);
     }
 }

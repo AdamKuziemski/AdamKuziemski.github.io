@@ -26,3 +26,7 @@
     border-top: 1px solid var(--line-color);
     padding: var(--sides-only-small);
 }
+
+.card-content > h5:first-child {
+    margin-top: var(--spacing-small);
+}
