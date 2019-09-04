@@ -25,6 +25,11 @@
     position: relative;
 }
 
+.tab-body p {
+    line-height: 1.2em;
+    margin: var(--spacing-small) 0;
+}
+
 #tab-container {
     grid-area: tabs;
     overflow-y: auto;
@@ -69,7 +74,7 @@
     }
 
     #about {
-        margin-bottom: 48px;
+        margin-bottom: 18px;
     }
 
     .tab-body::before {
