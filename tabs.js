@@ -25,7 +25,7 @@ class TabComponent {
         
         this.tabs.forEach(tab => tab.addEventListener('click', (event) => this.openClicked(event)));
 
-        this.openTab(0);
+        this.openTab(this.resolveStartingTabIndex());
     }
 
     /**
@@ -35,7 +35,7 @@ class TabComponent {
      * @param {number} index of the chosen tab
      */
     openTab(index) {
-        if (index < 0 || index >= this.tabs.length) {
+        if (this.doesNotHaveTab(index)) {
             return;
         }
 
@@ -183,7 +183,7 @@ class TabComponent {
             tab.classList.remove('animate-left');
             tab.classList.remove('animate-right');
         });
-        this.content[index].className += this.getTabAnimationClass(index);
+        this.content[index].className += this.resolveTabAnimationClass(index);
     }
 
     /**
@@ -239,7 +239,7 @@ class TabComponent {
      * @param {number} index of the tab to animate
      * @returns {string} css class to add to the element
      */
-    getTabAnimationClass(index) {
+    resolveTabAnimationClass(index) {
         if (index > this.currentlyOpenTab) {
             return ' animate-right';
         } else if (index < this.currentlyOpenTab) {
@@ -248,4 +248,41 @@ class TabComponent {
             return '';
         }
     };
+
+    /**
+     * @private
+     * Resolves an index of a tab that should open in the beginning
+     * Defaults to 0 if there is no tab parameter in the url
+     * Tab parameter can be a number or a string
+     * @returns {number} index of the starting tab
+     */
+    resolveStartingTabIndex() {
+        const tabParameter = window.location.href.split('?')[1];
+        if (tabParameter === undefined) {
+            return 0;
+        }
+
+        const tab = tabParameter.split('=')[1];
+        const index = isNaN(tab) ? this.findTabWithMatchingLabel(tab) : parseInt(tab, 10);
+        return this.doesNotHaveTab(index) ? 0 : index;
+    }
+
+    /**
+     * @private
+     * Finds an index of a tab whose inner text matches given label (case insensitive)
+     * @param {string} label of the tab to open
+     * @returns {number} index of the found tab or -1 if nothing was found
+     */
+    findTabWithMatchingLabel(label) {
+        return this.tabs.findIndex((tab) => tab.innerText.toLocaleLowerCase() === label.toLocaleLowerCase());
+    }
+
+    /**
+     * @private
+     * @param {number} index to check
+     * @returns {boolean} true if the given index is not a valid tab index
+     */
+    doesNotHaveTab(index) {
+        return index < 0 || index >= this.tabs.length;
+    }
 }
