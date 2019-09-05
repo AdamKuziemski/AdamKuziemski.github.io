@@ -25,7 +25,7 @@
     background-color: orange;
     height: 100%;
     display: inline-block;
-    transition: width 0.2s ease-in-out;
+    transition: width 0.6s cubic-bezier(.45, 0, 0, 1);
 }
 
 @media print {
