@@ -85,7 +85,7 @@ a {
 
 @keyframes slideleft {
     from {
-        left: -300px;
+        left: -80vw;
     } to {
         left: 0;
     }
