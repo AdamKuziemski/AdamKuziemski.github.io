@@ -6,11 +6,13 @@
     --full-without-spacing: calc(100% - 2 * var(--spacing-small));
     --line-color: #e9e9e9;
     --mat-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    --medium-slow: 0.4s;
+    --slow: 0.6s;
 }
 
 body {
     font-family: 'Fira Code', monospace;
-    font-size: 14px;
+    font-size: 0.9rem;
     overflow: hidden;
     margin: 0;
     height: 100vh;
@@ -20,10 +22,6 @@ body {
     grid-template-areas: 
         "header"
         "tabs";
-}
-
-body > header::before {
-    display:none;
 }
 
 body > header {
@@ -55,11 +53,18 @@ a {
 }
 
 .animate-left {
-    animation: slideleft 0.4s;
+    animation: slideleft var(--medium-slow);
 }
 
 .animate-right {
-    animation: slideright 0.4s;
+    animation: slideright var(--medium-slow);
+}
+
+@media screen and (min-width: 600px), print {
+    .double-column-when-wide-enough {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
 }
 
 @media print {
@@ -74,11 +79,7 @@ a {
         display: block;
     }
 
-    #fill {
-        transition: unset;
-    }
-
-    #links {
+    .not-printed {
         display: none;
     }
 }

@@ -17,17 +17,11 @@
 
 .tab-open {
     border-bottom: 2px solid orange;
-    position: relative;
-    transition: right 0.4s ease-in-out;
+    transition: right var(--medium-slow) ease-in-out;
 }
 
 .tab-body {
     position: relative;
-}
-
-.tab-body p {
-    line-height: 1.2em;
-    margin: var(--spacing-small) 0;
 }
 
 #tab-container {
@@ -37,29 +31,7 @@
 }
 
 .tab-scrolled-top {
-    box-shadow: inset 0 7px 9px -7px #CCC;
-}
-
-#skills {
-    display: block;
-    grid-template-columns: none;
-}
-
-#interests {
-    display: block;
-    grid-template-columns: none;
-}
-
-@media screen and (min-width: 800px), print {
-    #skills {
-        display: grid;
-        grid-template-columns: 50% 50%;
-    }
-
-    #interests {
-        display: grid;
-        grid-template-columns: 50% 50%;
-    }
+    box-shadow: inset 0 7px 9px -7px var(--line-color);
 }
 
 @media print {
@@ -84,5 +56,10 @@
         font-size: 1.25em;
         font-weight: bold;
         border-bottom: 1px solid var(--line-color);
+    }
+
+    .tab-body p {
+        line-height: 1.2em;
+        margin: var(--spacing-small) 0;
     }
 }
