@@ -6,9 +6,9 @@
     border-radius: 0.2em;
 }
 
-.card:before {
+.card[title]:before {
     content: attr(title);
-    font-size: 1.17em;
+    font-size: 1.16rem;
     font-weight: bold;
     padding: var(--spacing-small);
 }
