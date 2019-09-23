@@ -45,7 +45,8 @@ a {
     text-decoration: none;
 }
 
-.text-separator {
+section[title]::before {
+    content: attr(title);
     width: fit-content;
     margin: var(--sides-only-small);
     line-height: 32px;
