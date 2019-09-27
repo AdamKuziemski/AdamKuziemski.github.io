@@ -105,7 +105,7 @@ class ProgressBar {
      * @param {number} percent of the progress bar
      */
     setProgressBarFill(percent) {
-        this.fill.style.width = percent + '';
+        this.fill.style.width = percent + '%';
         this.hint.setValue(percent);
     }
 
