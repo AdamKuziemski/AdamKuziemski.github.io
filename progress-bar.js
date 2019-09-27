@@ -47,7 +47,7 @@ class AnimatedText {
             }
         }
         
-        this.animationTimer = setInterval(run, Math.max(Math.abs(Math.floor(this.duration / range)), 50));
+        this.animationTimer = setInterval(run, Math.max(Math.abs(Math.floor(this.duration / range)), 20));
         run();
     }
 }
