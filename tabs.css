@@ -1,5 +1,5 @@
 #tab-bar {
-    margin: var(--spacing-small);
+    margin: 16px 8px 0 8px;
     width: var(--full-without-spacing);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -46,13 +46,13 @@
     }
 
     #about {
-        margin-bottom: 18px;
+        margin-bottom: 26px;
     }
 
-    .tab-body::before {
+    .tab-body[title]::before {
         margin: var(--sides-only-small);
         line-height: 32px;
-        content: attr(data-label);
+        content: attr(title);
         font-size: 1.25em;
         font-weight: bold;
         border-bottom: 1px solid var(--line-color);

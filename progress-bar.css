@@ -11,8 +11,8 @@
     border-radius: 0.2rem;
 }
 
-#progress-bar:before {
-    content: attr(data-label);
+#progress-bar::before {
+    content: attr(title);
     font-size: 0.8rem;
     position: absolute;
     text-align: center;
@@ -26,6 +26,14 @@
     height: 100%;
     display: inline-block;
     transition: width var(--slow) cubic-bezier(.45, 0, 0, 1);
+}
+
+#progress-bar > #percent-hint {
+    color: #aaaaaa;
+    position: relative;
+    text-align: right;
+    font-size: 0.6rem;
+    top: -4px;
 }
 
 @media print {
