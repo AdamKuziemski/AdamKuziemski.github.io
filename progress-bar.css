@@ -6,7 +6,7 @@
 
     text-align: left;
 
-    background-color: #f8f8f8;
+    background-color: var(--background);
     border: 1px solid var(--line-color);
     border-radius: 0.2rem;
 }

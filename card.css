@@ -4,6 +4,7 @@
     border: 1px solid var(--line-color);
     box-shadow: var(--mat-shadow);
     border-radius: 0.2em;
+    background-color: white;
 }
 
 .card[title]:before {
