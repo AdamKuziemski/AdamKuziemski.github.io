@@ -29,7 +29,7 @@
 }
 
 #progress-bar > #percent-hint {
-    color: #aaaaaa;
+    color: var(--hint-color);
     position: relative;
     text-align: right;
     font-size: 0.6rem;
