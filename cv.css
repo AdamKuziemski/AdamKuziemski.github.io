@@ -65,11 +65,13 @@ section[title]::before {
 }
 
 .animate-left {
+    transition: left var(--medium-slow);
     animation: slideleft var(--medium-slow);
 }
 
 .animate-right {
-    animation: slideright var(--medium-slow);
+    transition: right var(--medium-slow);
+    animation: slideright var(--medium-slow);    
 }
 
 ::-webkit-scrollbar {
