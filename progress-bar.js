@@ -117,7 +117,9 @@ class ProgressBar {
      * @returns percent of completion of the current level, capped between 0 and 100 inclusive
      */
     calculateProgressTowardsNextLevel(age, pointInTime) {
-        const percent = (100 - ((this.getNextBirthday(age) - pointInTime) / 864000) / 365).toFixed(2);
+        const year = new Date().getUTCFullYear();
+        const daysInYear = this.isLeapYear(year) || this.isLeapYear(year - 1) ? 366 : 365;
+        const percent = (100 - ((this.getNextBirthday(age) - pointInTime) / 864000) / daysInYear).toFixed(2);
         return Math.min(Math.max(percent, 0), 100);
     }
 
@@ -133,5 +135,15 @@ class ProgressBar {
             this.birthday.getUTCMonth(), this.birthday.getUTCDate(),
             this.birthday.getUTCHours(), this.birthday.getUTCMinutes()
         ).getTime();
+    }
+
+    /**
+     * @private
+     * Chcecks if it's a leap year
+     * @param {number} year
+     * @returns {boolean} whether the current age's day count should count as a leap year
+     */
+    isLeapYear(year) {
+        return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
     }
 }
