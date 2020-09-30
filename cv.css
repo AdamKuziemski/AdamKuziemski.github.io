@@ -56,12 +56,9 @@ a {
     text-decoration: none;
 }
 
-section[title]::before {
-    content: attr(title);
-    width: fit-content;
+section .section-title {
     margin: var(--sides-only-small);
-    line-height: 32px;
-    border-bottom: 1px solid var(--line-color);
+    line-height: 28px;
 }
 
 .animate-left {
@@ -104,6 +101,16 @@ section[title]::before {
         max-width: 100%;
     }
 
+    body > header {
+        border: none !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+    }
+
+    body > header > h2 {
+        margin: 0 !important;
+    }
+
     body > footer {
         padding: var(--spacing-small);
         display: block;
@@ -112,6 +119,10 @@ section[title]::before {
     p {
         max-width: unset;
         line-height: inherit;
+    }
+
+    a {
+        color: var(--text-color);
     }
 
     .not-printed {

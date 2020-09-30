@@ -1,5 +1,5 @@
 #tab-bar {
-    margin: 16px 8px 0 8px;
+    margin: 16px 8px 8px 8px;
     width: var(--full-without-spacing);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -13,6 +13,7 @@
     padding: var(--spacing-small);
     text-align: center;
     border-bottom: 2px solid var(--line-color);
+    cursor: pointer;
 }
 
 .tab-open {
@@ -22,6 +23,10 @@
 
 .tab-body {
     position: relative;
+}
+
+.tab-title {
+    display: none;
 }
 
 #tab-container {
@@ -51,17 +56,16 @@
         box-shadow: none;
     }
 
-    #about {
-        margin-bottom: 40px;
+    #education {
+        margin-bottom: 15px;
     }
 
-    .tab-body[title]::before {
+    .tab-body > .tab-title {
+        display: block;
         margin: var(--sides-only-small);
-        line-height: 32px;
-        content: attr(title);
+        line-height: 28px;
         font-size: 1.25em;
         font-weight: bold;
-        border-bottom: 1px solid var(--line-color);
     }
 
     .tab-body p {

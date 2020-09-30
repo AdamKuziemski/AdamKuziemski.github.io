@@ -1,17 +1,15 @@
 .card {
     margin: var(--spacing-small);
-    padding: var(--spacing-small) 0;
+    padding-top: var(--spacing-small);
     border: 1px solid var(--line-color);
     box-shadow: var(--mat-shadow);
     border-radius: 0.2em;
     background-color: white;
 }
 
-.card[title]:before {
-    content: attr(title);
+.card .card-title {
     font-size: 1.16rem;
     font-weight: bold;
-    padding: var(--spacing-small);
 }
 
 .card > header {
