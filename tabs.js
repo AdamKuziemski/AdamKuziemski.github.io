@@ -229,7 +229,7 @@ class TabComponent {
      * @param {MouseEvent} event coming from the clicked tab
      */
     openClicked(event) {
-        this.openTab(this.tabs.findIndex(tab => tab.innerText === event.srcElement.innerText));
+        this.openTab(this.tabs.findIndex(tab => tab.innerText === event.target.innerText));
     }
 
     /**
@@ -257,12 +257,11 @@ class TabComponent {
      * @returns {number} index of the starting tab
      */
     resolveStartingTabIndex() {
-        const tabParameter = window.location.href.split('?')[1];
-        if (tabParameter === undefined) {
+        const tab = (new URL(document.location)).searchParams.get('tab');
+        if (tab === null) {
             return 0;
         }
 
-        const tab = tabParameter.split('=')[1];
         const index = isNaN(tab) ? this.findTabWithMatchingLabel(tab) : parseInt(tab, 10);
         return this.doesNotHaveTab(index) ? 0 : index;
     }
