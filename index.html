@@ -21,19 +21,19 @@
 <body>
     <header class="card">
         <h1 class="my-name">Adam Kuziemski</h1>
-        <div id="progress-bar" title="Level 0 programmer">
+        <div id="progress-bar" title="Level 0 programmer" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
             <div id="fill"></div>
             <div id="percent-hint" class="not-printed">0% until next level</div>
         </div>
-        <nav id="tab-bar">
-            <button class="tab">About</button>
-            <button class="tab">Skills</button>
-            <button class="tab">Other</button>
+        <nav id="tab-bar" role="tablist">
+            <button class="tab" role="tab" id="about-tab" aria-controls="about-content" aria-selected="false">About</button>
+            <button class="tab" role="tab" id="skills-tab" aria-controls="skills-content" aria-selected="false">Skills</button>
+            <button class="tab" role="tab" id="other-tab" aria-controls="other-content" aria-selected="false">Other</button>
         </nav>
     </header>
 
     <main id="tab-container">
-        <section class="tab-body">
+        <section class="tab-body" id="about-content" role="tabpanel" aria-labelledby="about-tab">
             <div class="tab-title">About me</div>
 
             <article class="card">
@@ -141,7 +141,7 @@
 
         </section>
 
-        <section class="tab-body">
+        <section class="tab-body" id="skills-content" role="tabpanel" aria-labelledby="skills-tab">
             <div class="tab-title" id="skillz">Skills</div>
 
             <div class="double-column-when-wide-enough">
@@ -198,7 +198,7 @@
             </div>
         </section>
 
-        <section class="tab-body">
+        <section class="tab-body" role="tabpanel" aria-labelledby="other-tab">
             <div class="tab-title">Things & stuff</div>
 
             <article class="card">
@@ -255,9 +255,7 @@
 
     </main>
 
-    <footer>
-        For a live version, visit https://adamkuziemski.github.io/
-    </footer>
+    <footer>For a live version, visit https://adamkuziemski.github.io/</footer>
 </body>
 
 </html>

@@ -23,10 +23,10 @@
 }
 
 .tab:focus {
-    outline: none;
+    outline: 1px solid var(--line-color);
 }
 
-.tab-open {
+.tab[aria-selected="true"] {
     border-bottom: 2px solid orange;
     transition: right var(--medium-slow) ease-in-out;
 }

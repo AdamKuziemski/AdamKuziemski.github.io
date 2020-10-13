@@ -107,6 +107,7 @@ class ProgressBar {
     setProgressBarFill(percent) {
         this.fill.style.width = percent + '%';
         this.hint.setValue(percent);
+        this.bar.setAttribute('aria-valuenow', percent);
     }
 
     /**

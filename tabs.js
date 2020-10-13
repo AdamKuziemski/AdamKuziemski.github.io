@@ -8,20 +8,22 @@ class Point2d {
 class TabComponent {
     constructor() {
         /** @private {number} */ this.currentlyOpenTab = 0;
+        /** @private {number} */ this.currentlyFocusedTab = 0;
         /** @private {Point2d} */ this.swipeStart = new Point2d(0, 0);
         /** @private {Point2d} */ this.swipePosition = new Point2d(0, 0);
         /** @private {number} */ this.swipeThreshold = 50;
 
-        /** @private {HTMLDivElement} */ this.tabBar = document.getElementById('tab-bar');
-        /** @private {HTMLDivElement} */ this.tabsContainer = document.getElementById('tab-container');
-        /** @private {HTMLDivElement[]} */ this.tabs = [...document.getElementsByClassName('tab')];
+        /** @private {HTMLMainElement} */ this.tabsContainer = document.getElementById('tab-container');
+        /** @private {HTMLNavElement} */ this.tabBar = document.getElementById('tab-bar');
+        /** @private {HTMLButtonElement[]} */ this.tabs = [...document.getElementsByClassName('tab')];
         /** @private {HTMLDivElement[]} */ this.content = [...document.getElementsByClassName('tab-body')];
 
 	    this.tabsContainer.addEventListener('touchstart', (event) => this.startSwipe(event), {passive: true});
 	    this.tabsContainer.addEventListener('touchmove', (event) => this.moveSwipe(event), {passive: true});
         this.tabsContainer.addEventListener('touchend', () => this.endSwipe(), {passive: true});
-
         this.tabsContainer.addEventListener('scroll', () => this.hideOrDisplayScrollShadow());
+
+        this.tabBar.addEventListener('keydown', (event) => this.moveTabFocus(event));
         
         this.tabs.forEach(tab => tab.addEventListener('click', (event) => this.openClicked(event)));
 
@@ -46,6 +48,7 @@ class TabComponent {
         this.hideOrDisplayScrollShadow();
     
         this.currentlyOpenTab = index;
+        this.currentlyFocusedTab = index;
     };
 
     /**
@@ -167,8 +170,8 @@ class TabComponent {
      * @param {number} index of the tab to indicate
      */
     setIndicator(index) {
-        this.tabs.forEach(tab => tab.classList.remove('tab-open'));
-        this.tabs[index].classList.add('tab-open');
+        this.tabs.forEach(tab => tab.setAttribute('aria-selected', false));
+        this.tabs[index].setAttribute('aria-selected', true);
     }
 
     /**
@@ -178,12 +181,44 @@ class TabComponent {
      * @param {number} index of the tab to display
      */
     displayChild(index) {
-        this.content.forEach((tab, i) => {
-            tab.style.display = i === index ? 'block' : 'none';
+        this.content.forEach(tab => {
+            tab.setAttribute('hidden', true);
             tab.classList.remove('animate-left');
             tab.classList.remove('animate-right');
         });
+
+        this.content[index].removeAttribute('hidden');
         this.content[index].className += this.resolveTabAnimationClass(index);
+    }
+
+    /**
+     * @private
+     * Handles focus navigation using arrow keys, Home and End
+     * 
+     * @param {KeyboardEvent} event
+     */
+    moveTabFocus(event) {
+        const handledKeys = ['ArrowRight', 'ArrowLeft', 'Home', 'End'];    
+        if (!handledKeys.includes(event.key)) {
+            return;
+        }
+
+        this.tabs[this.currentlyFocusedTab].setAttribute('tabindex', -1);
+        if (event.key === 'ArrowRight') {
+            this.currentlyFocusedTab++;
+            this.wrapAroundFocus();
+        } else if (event.key === 'ArrowLeft') {
+            this.currentlyFocusedTab--;
+            this.wrapAroundFocus();
+        } else if (event.key === 'Home') {
+            this.currentlyFocusedTab = 0;
+        } else if (event.key === 'End') {
+            this.currentlyFocusedTab = this.tabs.length - 1;
+        }
+
+        this.tabs[this.currentlyFocusedTab].setAttribute('tabindex', 0);
+        this.tabs[this.currentlyFocusedTab].focus();
+        event.preventDefault();
     }
 
     /**
@@ -230,6 +265,20 @@ class TabComponent {
      */
     openClicked(event) {
         this.openTab(this.tabs.findIndex(tab => tab.innerText === event.target.innerText));
+    }
+
+    /**
+     * @private
+     * Wraps tab focus after an arrow key has been pressed.
+     */
+    wrapAroundFocus() {
+        if (this.currentlyFocusedTab >= this.tabs.length) {
+            this.currentlyFocusedTab = 0;
+        }
+
+        if (this.currentlyFocusedTab < 0) {
+            this.currentlyFocusedTab = this.tabs.length - 1;
+        }
     }
 
     /**
