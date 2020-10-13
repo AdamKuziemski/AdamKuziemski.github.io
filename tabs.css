@@ -12,8 +12,18 @@
 .tab {
     padding: var(--spacing-small);
     text-align: center;
+    background: white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
     border-bottom: 2px solid var(--line-color);
     cursor: pointer;
+    font-family: 'Fira Code', monospace;
+    font-size: 1em;
+}
+
+.tab:focus {
+    outline: none;
 }
 
 .tab-open {
@@ -56,8 +66,8 @@
         box-shadow: none;
     }
 
-    #education {
-        margin-bottom: 15px;
+    #skillz {
+        margin-top: 20px;
     }
 
     .tab-body > .tab-title {

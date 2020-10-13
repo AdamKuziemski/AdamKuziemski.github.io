@@ -8,12 +8,26 @@
 }
 
 .card .card-title {
-    font-size: 1.16rem;
+    font-size: 1.1em;
     font-weight: bold;
+}
+
+.card .project-name {
+    font-size: 0.95em;
+    font-weight: bold;
+}
+
+.card .card-subtitle {
+    font-size: 0.8em;
 }
 
 .card > header {
     padding: var(--sides-only-small);
+    border-bottom: 1px solid var(--line-color);
+}
+
+.card > header :last-child {
+    margin-bottom: var(--spacing-small);
 }
 
 .card > footer {
@@ -22,10 +36,9 @@
 }
 
 .card .card-content {
-    border-top: 1px solid var(--line-color);
     padding: var(--sides-only-small);
 }
 
-.card-content > h5:first-child {
+.card-content > h4:first-child {
     margin-top: var(--spacing-small);
 }
