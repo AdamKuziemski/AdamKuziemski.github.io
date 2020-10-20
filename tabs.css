@@ -27,7 +27,7 @@
 }
 
 .tab[aria-selected="true"] {
-    border-bottom: 2px solid orange;
+    border-bottom: 2px solid var(--primary-color);
     transition: right var(--medium-slow) ease-in-out;
 }
 

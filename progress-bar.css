@@ -22,7 +22,7 @@
 }
 
 #progress-bar > #fill {
-    background-color: orange;
+    background-color: var(--primary-color);
     height: 100%;
     display: inline-block;
     transition: width var(--slow) cubic-bezier(.45, 0, 0, 1);
