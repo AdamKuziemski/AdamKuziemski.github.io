@@ -2,260 +2,267 @@
 <html lang="en">
 
 <head>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="utf-8" http-equiv="encoding">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <link rel="stylesheet" href="cv.css" />
-    <link rel="stylesheet" href="progress-bar.css" />
-    <link rel="stylesheet" href="tabs.css" />
-    <link rel="stylesheet" href="card.css" />
+  <link rel="stylesheet" href="cv.css" />
+  <link rel="stylesheet" href="animations.css" />
+  <link rel="stylesheet" href="progress-bar.css" />
+  <link rel="stylesheet" href="tabs.css" />
+  <link rel="stylesheet" href="card.css" />
 
-    <script type="text/javascript" src="./tabs.js"></script>
-    <script type="text/javascript" src="./progress-bar.js"></script>
-    <script type="text/javascript" src="./cv.js"></script>
+  <script type="text/javascript" src="./tabs.js"></script>
+  <script type="text/javascript" src="./progress-bar.js"></script>
+  <script type="text/javascript" src="./cv.js"></script>
+  <script type="text/javascript" src="./easter-eggs.js"></script>
 
-    <title>Adam Kuziemski</title>
+  <title>Adam Kuziemski</title>
 </head>
 
 <body>
-    <header class="card">
-        <h1 class="my-name">Adam Kuziemski</h1>
-        <div id="progress-bar" title="Level 0 programmer" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-            <div id="fill"></div>
-            <div id="percent-hint" class="not-printed">0% until next level</div>
+  <header class="card">
+    <h1 class="my-name">Adam Kuziemski</h1>
+    <div id="progress-bar" title="Level 0 programmer" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+      aria-valuenow="0">
+      <div id="fill"></div>
+      <div id="percent-hint" class="not-printed">0% until next level</div>
+    </div>
+    <nav id="tab-bar" role="tablist">
+      <button class="tab" role="tab" id="about-tab" aria-controls="about-content" aria-selected="false">About</button>
+      <button class="tab" role="tab" id="skills-tab" aria-controls="skills-content"
+        aria-selected="false">Skills</button>
+      <button class="tab" role="tab" id="other-tab" aria-controls="other-content" aria-selected="false">Other</button>
+    </nav>
+  </header>
+
+  <main id="tab-container">
+    <section class="tab-body" id="about-content" role="tabpanel" aria-labelledby="about-tab">
+      <div class="tab-title">About me</div>
+
+      <article class="card">
+        <header>
+          <h2 class="card-title">Contact info</h2>
+        </header>
+        <div class="card-content double-column-when-wide-enough">
+          <p>Mobile: (+48) 605 044 898</p>
+          <p>E-mail: <a href="mailto:kuziemski.a@gmail.com">kuziemski.a@gmail.com</a></p>
         </div>
-        <nav id="tab-bar" role="tablist">
-            <button class="tab" role="tab" id="about-tab" aria-controls="about-content" aria-selected="false">About</button>
-            <button class="tab" role="tab" id="skills-tab" aria-controls="skills-content" aria-selected="false">Skills</button>
-            <button class="tab" role="tab" id="other-tab" aria-controls="other-content" aria-selected="false">Other</button>
-        </nav>
-    </header>
+      </article>
 
-    <main id="tab-container">
-        <section class="tab-body" id="about-content" role="tabpanel" aria-labelledby="about-tab">
-            <div class="tab-title">About me</div>
+      <article class="card not-printed">
+        <header>
+          <h2 class="card-title">Links</h2>
+        </header>
+        <div class="card-content">
+          <p><a href="https://www.linkedin.com/in/adam-kuziemski-01a75415a/">LinkedIn</a></p>
+          <p><a href="https://github.com/AdamKuziemski">GitHub</a></p>
+          <p><a href="https://www.codewars.com/users/GrimCuzzer">Codewars</a></p>
+          <p><a href="https://pcpartpicker.com/list/FVKxWb">My rig</a> (<a
+              href="https://pcpartpicker.com/list/DjMD27">Goal</a>)</p>
+        </div>
+      </article>
 
-            <article class="card">
-                <header>
-                    <h2 class="card-title">Contact info</h2>
-                </header>
-                <div class="card-content double-column-when-wide-enough">
-                    <p>Mobile: (+48) 605 044 898</p>
-                    <p>E-mail: <a href="mailto:kuziemski.a@gmail.com">kuziemski.a@gmail.com</a></p>
-                </div>
-            </article>
+      <section id="experience">
+        <header>
+          <h2 class="section-title">Experience</h2>
+        </header>
+        <article class="card">
+          <header>
+            <h3 class="card-title">Crestt</h3>
+            <div class="card-subtitle">04.11.2019 – present</div>
+            <div class="card-subtitle">Role: Front-end developer</div>
+          </header>
+          <div class="card-content">
+            <h4 class="project-name">Banking app</h4>
+            <div class="card-subtitle">~415K LoC (app) + ~85K LoC (library), thousands of users daily</div>
+            <p>Tech stack: Angular 8, RxJS, NGXS, TypeScript, Sass, custom UI/utility library based on Material
+              Design</p>
+            <p>Responsibilities: Designing and implementing a protocol based on window.postMessage to
+              communicate between IFrames, mainly for SSO purposes. Implementing customer support mailing functionality.
+              Adjustment of
+              existing customer facing functionality for use in a customer support setting.
+              Driving minor UI/UX changes.</p>
+          </div>
+        </article>
 
-            <article class="card not-printed">
-                <header>
-                    <h2 class="card-title">Links</h2>
-                </header>
-                <div class="card-content">
-                    <p><a href="https://www.linkedin.com/in/adam-kuziemski-01a75415a/">LinkedIn</a></p>
-                    <p><a href="https://github.com/AdamKuziemski">GitHub</a></p>
-                    <p><a href="https://www.codewars.com/users/GrimCuzzer">Codewars</a></p>
-                    <p><a href="https://pcpartpicker.com/list/FVKxWb">My rig</a> (<a
-                            href="https://pcpartpicker.com/list/DjMD27">Goal</a>)</p>
-                </div>
-            </article>
+        <article class="card">
+          <header>
+            <h3 class="card-title">Accenture</h3>
+            <div class="card-subtitle">01.07.2017 – 31.10.2019</div>
+            <div class="card-subtitle">Role: Front-end developer</div>
+          </header>
+          <div class="card-content">
+            <h4 class="project-name">First project (August 2017 – May 2018)</h4>
+            <div class="card-subtitle">36K LoC, 2K unique logins per day during peak</div>
+            <p>Tech stack: Angular 4, Material 4, Sass, TypeScript, RxJS, SalesForce
+              (as a REST server/database), Cordova (for iOS builds), Webpack (for AWS S3)</p>
+            <p>Responsibilities: Development and maintenance of a hybrid mobile/web app. Creating and
+              refactoring components, services and route guards. Juggling REST requests. Performance
+              improvements, query size/time reduction.</p>
 
-            <section id="experience">
-                <header>
-                    <h2 class="section-title">Experience</h2>
-                </header>
-                <article class="card">
-                    <header>
-                        <h3 class="card-title">Crestt</h3>
-                        <div class="card-subtitle">04.11.2019 – present</div>
-                        <div class="card-subtitle">Role: Front-end developer</div>
-                    </header>
-                    <div class="card-content">
-                        <h4 class="project-name">Banking app</h4>
-                        <div class="card-subtitle">~415K LoC (app) + ~85K LoC (library), thousands of users daily</div>
-                        <p>Tech stack: Angular 8, RxJS, NGXS, TypeScript, Sass, custom UI/utility library based on Material
-                            Design</p>
-                        <p>Responsibilities: Designing and implementing a protocol based on window.postMessage to
-                            communicate between IFrames, mainly for SSO purposes. Implementing customer support mailing functionality. Adjustment of
-                            existing customer facing functionality for use in a customer support setting.
-                            Driving minor UI/UX changes.</p>
-                    </div>
-                </article>
+            <h4 class="project-name">Second project (January 2018 – October 2019)</h4>
+            <p>Tech stack: Lightning Components (HTML5-ish/CSS/JavaScript), SalesForce</p>
+            <p>Responsibilities: Development and maintenance of a rewrite of an Angular app into
+              SalesForce's proprietary Aura/Lightning framework. Implementing custom UX features, an
+              electronic signature functionality, integration with an ID/barcode scanning app,
+              performance improvements. Redesign and implementation of an improvement to the existing
+              settings system.</p>
+          </div>
+        </article>
 
-                <article class="card">
-                    <header>
-                        <h3 class="card-title">Accenture</h3>
-                        <div class="card-subtitle">01.07.2017 – 31.10.2019</div>
-                        <div class="card-subtitle">Role: Front-end developer</div>
-                    </header>
-                    <div class="card-content">
-                        <h4 class="project-name">First project (August 2017 – May 2018)</h4>
-                        <div class="card-subtitle">36K LoC, 2K unique logins per day during peak</div>
-                        <p>Tech stack: Angular 4, Material 4, Sass, TypeScript, RxJS, SalesForce
-                            (as a REST server/database), Cordova (for iOS builds), Webpack (for AWS S3)</p>
-                        <p>Responsibilities: Development and maintenance of a hybrid mobile/web app. Creating and
-                            refactoring components, services and route guards. Juggling REST requests. Performance
-                            improvements, query size/time reduction.</p>
+        <article class="card not-printed">
+          <header>
+            <h3 class="card-title">Euro Cash sp. z o.o.</h3>
+            <div class="card-subtitle">01.09.2014 – 01.02.2016</div>
+            <div class="card-subtitle">Role: Webmaster/programmer</div>
+          </header>
+          <div class="card-content">
+            <h4 class="project-name">Board game assistant app</h4>
+            <div class="card-subtitle">10K LoC (Java), ~400 downloads from Google Store</div>
+            <p>Tech stack: Android 4.2, Java, PHP (WordPress)</p>
+            <p>Responsibilities: Development of a mobile app for Android 4 as a tool for an educational
+              board game about achieving financial independence. Features included a hot seat mode, automatic
+              calculation of asset income, installments and salaries, etc. Maintenance of the
+              website and creation of a custom system for lead acquisition.</p>
+          </div>
+        </article>
+      </section>
 
-                        <h4 class="project-name">Second project (January 2018 – October 2019)</h4>
-                        <p>Tech stack: Lightning Components (HTML5-ish/CSS/JavaScript), SalesForce</p>
-                        <p>Responsibilities: Development and maintenance of a rewrite of an Angular app into
-                            SalesForce's proprietary Aura/Lightning framework. Implementing custom UX features, an
-                            electronic signature functionality, integration with an ID/barcode scanning app,
-                            performance improvements. Redesign and implementation of an improvement to the existing
-                            settings system.</p>
-                    </div>
-                </article>
+      <section id="education">
+        <header>
+          <h2 class="section-title">Education</h2>
+        </header>
+        <article class="card">
+          <header>
+            <h3 class="card-title">Jan Długosz University in Częstochowa</h3>
+            <div class="card-subtitle">01.10.2012 – 06.2015</div>
+          </header>
+          <div class="card-content">
+            <p>Bachelor of Philosophy (didn't graduate)</p>
+          </div>
+        </article>
+      </section>
+    </section>
 
-                <article class="card not-printed">
-                    <header>
-                        <h3 class="card-title">Euro Cash sp. z o.o.</h3>
-                        <div class="card-subtitle">01.09.2014 – 01.02.2016</div>
-                        <div class="card-subtitle">Role: Webmaster/programmer</div>
-                    </header>
-                    <div class="card-content">
-                        <h4 class="project-name">Board game assistant app</h4>
-                        <div class="card-subtitle">10K LoC (Java), ~400 downloads from Google Store</div>
-                        <p>Tech stack: Android 4.2, Java, PHP (WordPress)</p>
-                        <p>Responsibilities: Development of a mobile app for Android 4 as a tool for an educational
-                            board game about achieving financial independence. Features included a hot seat mode, automatic
-                            calculation of asset income, installments and salaries, etc. Maintenance of the
-                            website and creation of a custom system for lead acquisition.</p>
-                    </div>
-                </article>
-            </section>
+    <section class="tab-body" id="skills-content" role="tabpanel" aria-labelledby="skills-tab">
+      <div class="tab-title" id="skillz">Skills</div>
 
-            <section id="education">
-                <header>
-                    <h2 class="section-title">Education</h2>
-                </header>
-                <article class="card">
-                    <header>
-                        <h3 class="card-title">Jan Długosz University in Częstochowa</h3>
-                        <div class="card-subtitle">01.10.2012 – 06.2015</div>
-                    </header>
-                    <div class="card-content">
-                        <p>Bachelor of Philosophy (didn't graduate)</p>
-                    </div>
-                </article>
-            </section>
+      <div class="double-column-when-wide-enough">
+        <article class="card">
+          <header>
+            <h2 class="card-title">JavaScript</h2>
+            <div class="card-subtitle">ES6+</div>
+          </header>
+          <div class="card-content">
+            <p>Array.map, Array.reduce</p>
+            <p>TypeScript</p>
+            <p>Node.js</p>
+          </div>
+        </article>
 
-        </section>
+        <article class="card">
+          <header>
+            <h2 class="card-title">Angular</h2>
+            <div class="card-subtitle">Versions 5-10, 4 if needed</div>
+          </header>
+          <div class="card-content">
+            <p>Angular Material</p>
+            <p>Karma/Jasmine</p>
+            <p>RxJS</p>
+          </div>
+        </article>
 
-        <section class="tab-body" id="skills-content" role="tabpanel" aria-labelledby="skills-tab">
-            <div class="tab-title" id="skillz">Skills</div>
+        <article class="card">
+          <header>
+            <h2 class="card-title">Styling/layout</h2>
+          </header>
+          <div class="card-content">
+            <p>HTML5 and Semantic HTML</p>
+            <p>CSS3</p>
+            <p>CSS Grid</p>
+            <p>CSS Variables</p>
+            <p>Sass</p>
+          </div>
+        </article>
 
-            <div class="double-column-when-wide-enough">
-                <article class="card">
-                    <header>
-                        <h2 class="card-title">JavaScript</h2>
-                        <div class="card-subtitle">ES6+</div>
-                    </header>
-                    <div class="card-content">
-                        <p>Array.map, Array.reduce</p>
-                        <p>TypeScript</p>
-                        <p>Node.js</p>
-                    </div>
-                </article>
+        <article class="card">
+          <header>
+            <h2 class="card-title">Other</h2>
+          </header>
+          <div class="card-content">
+            <p>English (TOEIC C1)</p>
+            <p>Effective communication</p>
+            <p>TDD, refactoring</p>
+            <p>REST</p>
+            <p>Git</p>
+            <p>Scrum</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-                <article class="card">
-                    <header>
-                        <h2 class="card-title">Angular</h2>
-                        <div class="card-subtitle">Versions 5-10, 4 if needed</div>
-                    </header>
-                    <div class="card-content">
-                        <p>Angular Material</p>
-                        <p>Karma/Jasmine</p>
-                        <p>RxJS</p>
-                    </div>
-                </article>
+    <section class="tab-body" role="tabpanel" aria-labelledby="other-tab">
+      <div class="tab-title">Things & stuff</div>
 
-                <article class="card">
-                    <header>
-                        <h2 class="card-title">Styling/layout</h2>
-                    </header>
-                    <div class="card-content">
-                        <p>HTML5 and Semantic HTML</p>
-                        <p>CSS3</p>
-                        <p>CSS Grid</p>
-                        <p>CSS Variables</p>
-                        <p>Sass</p>
-                    </div>
-                </article>
+      <article class="card">
+        <header>
+          <h2 class="card-title">Personal project</h2>
+          <div class="card-subtitle">Dialogues and Dragons (March 2018 – present)</div>
+          <div class="card-subtitle">5.5K LoC</div>
+        </header>
+        <div class="card-content">
+          <p>Tech stack: Angular 9, Angular Material 9, RxJS, Jasmine</p>
+          <p>A web app that lets users create content for games. Inspired by Bethesda Softworks® Creation Kit.
+            Features include creating/editing items, NPCs, quests and dialogue trees. Currently
+            working on improvements to a system that will let content creators decide what happens when, for
+            example, a dialogue option is chosen or an item is used.</p>
+        </div>
+      </article>
 
-                <article class="card">
-                    <header>
-                        <h2 class="card-title">Other</h2>
-                    </header>
-                    <div class="card-content">
-                        <p>English (TOEIC C1)</p>
-                        <p>Effective communication</p>
-                        <p>TDD, refactoring</p>
-                        <p>REST</p>
-                        <p>Git</p>
-                        <p>Scrum</p>
-                    </div>
-                </article>
-            </div>
-        </section>
+      <div class="double-column-when-wide-enough">
+        <article class="card">
+          <header>
+            <h2 class="card-title">Interests/hobbies</h2>
+          </header>
+          <div class="card-content">
+            <p>Reading (30-50 books per year)</p>
+            <p>Music (guitar, beatbox, vinyls)</p>
+            <p>Puzzles (Rubik's cube, sudoku, jigsaw puzzles)</p>
+            <p>Gaming</p>
+            <p>Cooking & mixology</p>
+            <p>Juggling</p>
+            <p>Mechanical keyboards</p>
+          </div>
+        </article>
 
-        <section class="tab-body" role="tabpanel" aria-labelledby="other-tab">
-            <div class="tab-title">Things & stuff</div>
+        <article class="card">
+          <header>
+            <h2 class="card-title">Random facts</h2>
+          </header>
+          <div class="card-content">
+            <p>I live with two cats.</p>
+            <p>I volunteer at <a href="http://kotylion.pl/">Kotylion</a>.</p>
+            <p>I have an IQ of 145 (Cattell scale).</p>
+            <p>I use an <a href="https://ergodox-ez.com/">ErgoDox EZ</a> with <a
+                href="https://zealpc.net/collections/switches/products/zilents">Zilents v2 62g</a> as my daily driver.
+              <span class="not-printed"><a
+                  href="https://configure.ergodox-ez.com/ergodox-ez/layouts/9wGLj/latest/0">Here's</a> my current
+                layout.</span>
+            </p>
+            <p>I lived in the UK for a year and most people didn't realise I wasn't a Brit.</p>
+            <p>My reading list will last me about 50 years.</p>
+            <p>I like spicy things.</p>
+            <p class="not-printed">No animal was hurt in the process of making this.</p>
+          </div>
+        </article>
+      </div>
 
-            <article class="card">
-                <header>
-                    <h2 class="card-title">Personal project</h2>
-                    <div class="card-subtitle">Dialogues and Dragons (March 2018 – present)</div>
-                    <div class="card-subtitle">5.5K LoC</div>
-                </header>
-                <div class="card-content">
-                    <p>Tech stack: Angular 9, Angular Material 9, RxJS, Jasmine</p>
-                    <p>A web app that lets users create content for games. Inspired by Bethesda Softworks® Creation Kit.
-                        Features include creating/editing items, NPCs, quests and dialogue trees. Currently
-                        working on improvements to a system that will let content creators decide what happens when, for
-                        example, a dialogue option is chosen or an item is used.</p>
-                </div>
-            </article>
+    </section>
 
-            <div class="double-column-when-wide-enough">
-                <article class="card">
-                    <header>
-                        <h2 class="card-title">Interests/hobbies</h2>
-                    </header>
-                    <div class="card-content">
-                        <p>Reading (30-50 books per year)</p>
-                        <p>Music (guitar, beatbox, vinyls)</p>
-                        <p>Puzzles (Rubik's cube, sudoku, jigsaw puzzles)</p>
-                        <p>Gaming</p>
-                        <p>Cooking & mixology</p>
-                        <p>Juggling</p>
-                        <p>Mechanical keyboards</p>
-                    </div>
-                </article>
+  </main>
 
-                <article class="card">
-                    <header>
-                        <h2 class="card-title">Random facts</h2>
-                    </header>
-                    <div class="card-content">
-                        <p>I live with two cats.</p>
-                        <p>I volunteer at <a href="http://kotylion.pl/">Kotylion</a>.</p>
-                        <p>I have an IQ of 145 (Cattell scale).</p>
-                        <p>I use an <a href="https://ergodox-ez.com/">ErgoDox EZ</a> with <a href="https://zealpc.net/collections/switches/products/zilents">Zilents v2 62g</a> as my daily driver.
-                            <span class="not-printed"><a href="https://configure.ergodox-ez.com/ergodox-ez/layouts/9wGLj/latest/0">Here's</a> my current layout.</span>
-                        </p>
-                        <p>I lived in the UK for a year and most people didn't realise I wasn't a Brit.</p>
-                        <p>My reading list will last me about 50 years.</p>
-                        <p>I like spicy things.</p>
-                        <p class="not-printed">No animal was hurt in the process of making this.</p>
-                    </div>
-                </article>
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer>For a live version, visit https://adamkuziemski.github.io/</footer>
+  <footer>For a live version, visit https://adamkuziemski.github.io/</footer>
 </body>
 
 </html>

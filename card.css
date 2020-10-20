@@ -1,44 +1,44 @@
 .card {
-    margin: var(--spacing-small);
-    padding-top: var(--spacing-small);
-    border: 1px solid var(--line-color);
-    box-shadow: var(--mat-shadow);
-    border-radius: 0.2em;
-    background-color: white;
+  margin: var(--spacing-small);
+  padding-top: var(--spacing-small);
+  border: 1px solid var(--line-color);
+  box-shadow: var(--mat-shadow);
+  border-radius: 0.2em;
+  background-color: white;
 }
 
 .card .card-title {
-    font-size: 1.1em;
-    font-weight: bold;
+  font-size: 1.1em;
+  font-weight: bold;
 }
 
 .card .project-name {
-    font-size: 0.95em;
-    font-weight: bold;
+  font-size: 0.95em;
+  font-weight: bold;
 }
 
 .card .card-subtitle {
-    font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 .card > header {
-    padding: var(--sides-only-small);
-    border-bottom: 1px solid var(--line-color);
+  padding: var(--sides-only-small);
+  border-bottom: 1px solid var(--line-color);
 }
 
 .card > header :last-child {
-    margin-bottom: var(--spacing-small);
+  margin-bottom: var(--spacing-small);
 }
 
 .card > footer {
-    padding: var(--sides-only-small);
-    border-top: 1px solid var(--line-color);
+  padding: var(--sides-only-small);
+  border-top: 1px solid var(--line-color);
 }
 
 .card .card-content {
-    padding: var(--sides-only-small);
+  padding: var(--sides-only-small);
 }
 
 .card-content > h4:first-child {
-    margin-top: var(--spacing-small);
+  margin-top: var(--spacing-small);
 }
