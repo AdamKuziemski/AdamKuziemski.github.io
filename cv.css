@@ -1,20 +1,4 @@
 @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.207/distr/fira_code.css);
-/* https://colors.lol/biparous */
-
-:root {
-  --spacing-small: 8px;
-  --sides-only-small: 0 var(--spacing-small);
-  --full-without-spacing: calc(100% - 2 * var(--spacing-small));
-  --background: #f8f8f8;
-  --text-color: #222222;
-  --line-color: #e9e9e9;
-  --hint-color: #aaaaaa;
-  --primary-color: #FC824A; /* biparous orangish */
-  --secondary-color: #B00149; /* unblissful raspberry */
-  --mat-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
-  --medium-slow: 0.3s;
-  --slow: 0.6s;
-}
 
 body {
   overflow: hidden;
@@ -35,6 +19,7 @@ body {
 }
 
 body > header {
+  position: relative;
   grid-area: header;
   text-align: center;
 }
@@ -48,12 +33,12 @@ p {
 }
 
 a {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   text-decoration: none;
 }
 
 a:visited {
-  color: var(--secondary-color);
+  color: var(--clicked-color);
 }
 
 a:hover, input:hover, button:hover, select:hover,
@@ -74,6 +59,14 @@ section .section-title {
 .my-name {
   font-size: 22px;
   margin: var(--spacing-small);
+}
+
+#dark-mode-toggle {
+  width: 20px;
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  fill: var(--text-color);
 }
 
 ::-webkit-scrollbar {
@@ -106,6 +99,7 @@ section .section-title {
     font-size: 12pt;
     height: 100%;
     max-width: 100%;
+    background: white;
   }
 
   body > header {
@@ -120,10 +114,6 @@ section .section-title {
     margin: -1px;
   }
 
-  .my-name {
-    margin: 0 !important;
-  }
-
   p {
     max-width: unset;
     line-height: inherit;
@@ -131,6 +121,10 @@ section .section-title {
 
   a {
     color: var(--text-color);
+  }
+
+  .my-name {
+    margin: 0 !important;
   }
 
   .not-printed {

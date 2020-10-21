@@ -1,8 +1,10 @@
 (() => {
+	let darkMode = null;
 	let progressBar = null;
 	let tabs = null;
 
 	window.onload = () => {
+		darkMode = new DarkModeDetector();
 		progressBar = new ProgressBar();
 		tabs = new TabComponent();
 	};
@@ -14,10 +16,12 @@
 	window.onbeforeprint = () => {
 		tabs.linearizeTabs();
 		progressBar.setLevelAndExperience();
+		darkMode.printInNormalMode();
 	}
 
 	window.onafterprint = () => {
 		tabs.displayTabs();
+		darkMode.applyDarkModeSettings();
 	}
 
 	const [url, parameterList] = window.location.href.split('?');
