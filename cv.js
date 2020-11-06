@@ -23,18 +23,4 @@
 		tabs.displayTabs();
 		darkMode.applyDarkModeSettings();
 	}
-
-	const [url, parameterList] = window.location.href.split('?');
-	if (parameterList === undefined) {
-		return;
-	}
-
-	const params = parameterList.split('&').map((param) => param.split('='));
-	const tab = params.find((param) => param[0] === 'tab');
-
-	if (tab === undefined) {
-		history.pushState({}, '', url);
-	} else if (params.length > 1) {
-		history.pushState({}, '', `${url}?tab=${tab[1]}`);
-	}
 })();
