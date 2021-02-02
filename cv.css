@@ -111,7 +111,7 @@ section .section-title {
   body > footer {
     display: block;
     text-align: center;
-    margin: -1px;
+    margin-top: 0;
   }
 
   p {
