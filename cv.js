@@ -8,7 +8,7 @@
 		progressBar = new ProgressBar();
 		tabs = new TabComponent();
 
-		document.addEventListener('keyup', checkKonamiCode);
+		placeEggs();
 	};
 
 	window.onresize = () => {

@@ -61,7 +61,11 @@
 
 
 
-const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+function placeEggs() {
+  document.addEventListener('keyup', checkKonamiCode);
+	lambert();
+}
+
 let konami = [];
 
 function checkKonamiCode(event) {
@@ -97,5 +101,33 @@ function isKonamiCodeComplete() {
 function hideo() {
   const hideoOverlay = document.getElementById('hideo');
   hideoOverlay.style.display = 'block';
-  setTimeout(() => hideoOverlay.style.display = 'none', 5_000);
+
+  setTimeout(() => {
+    hideoOverlay.style.display = 'none';
+    pickUpEgg('kojima');
+  }, 5_000);
 }
+
+function lambert() {
+  console.log('Chcesz usłyszeć fraszkę?');
+  Object.defineProperty(window, 'Pewnie', {
+    get: () => {
+      pickUpEgg('limerick');
+      return 'Lambert, Lambert, ty chuju.';
+    }
+  });
+}
+
+function pickUpEgg(name) {
+  easterEggChecklist[name] = true;
+
+  if (Object.values(easterEggChecklist).every(egg => egg)) {
+    alert(`Wow, look at all these eggs!\nNow if only I could get you kids to pick up litter this efficiently,\nwe'd have the cleanest town this side of Gem Sea! *chuckle*\n\n\nNot this time, Abigail...`);
+  }
+}
+
+const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+const easterEggChecklist = {
+  limerick: false,
+  kojima: false
+};
