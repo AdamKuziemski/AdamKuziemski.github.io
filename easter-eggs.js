@@ -63,7 +63,7 @@
 
 function placeEggs() {
   document.addEventListener('keyup', checkKonamiCode);
-	lambert();
+  lambert();
 }
 
 let konami = [];
@@ -99,11 +99,13 @@ function isKonamiCodeComplete() {
 }
 
 function hideo() {
-  const hideoOverlay = document.getElementById('hideo');
-  hideoOverlay.style.display = 'block';
+  const hideoOverlay = document.createElement('div');
+  hideoOverlay.innerText = 'HIDEO';
+  hideoOverlay.classList.add('hideo');
+  document.body.appendChild(hideoOverlay);
 
   setTimeout(() => {
-    hideoOverlay.style.display = 'none';
+    document.body.removeChild(hideoOverlay);
     pickUpEgg('kojima');
   }, 5_000);
 }
@@ -129,5 +131,5 @@ function pickUpEgg(name) {
 const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 const easterEggChecklist = {
   limerick: false,
-  kojima: false
+  kojima: false,
 };
