@@ -1,0 +1,31 @@
+.dear-recruiter {
+  overflow: auto;
+  height: auto;
+}
+
+.paths {
+  height: min-content;
+}
+
+.paths > .card {
+  padding-top: 0;
+}
+
+.center-content {
+  text-align: center;
+}
+
+.proceed-link {
+  line-height: 3;
+}
+
+.question {
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 15px 0;
+}
+
+.answer {
+  padding-left: 8px;
+}
