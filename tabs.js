@@ -61,13 +61,6 @@ class TabComponent {
   };
 
   /**
-   * Sets display: block to all tabs to display them all at the same time.
-   */
-  linearizeTabs() {
-    this.content.forEach(tab => tab.style.display = 'block');
-  }
-
-  /**
    * Returns to tab display mode after printing.
    */
   displayTabs() {

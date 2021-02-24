@@ -16,7 +16,6 @@
 	}
 
 	window.onbeforeprint = () => {
-		tabs.linearizeTabs();
 		progressBar.setLevelAndExperience();
 		darkMode.printInNormalMode();
 	}

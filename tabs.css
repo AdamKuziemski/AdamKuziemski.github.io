@@ -71,6 +71,10 @@
     margin-top: 20px;
   }
 
+  .tab-body {
+    display: block;
+  }
+
   .tab-body > .tab-title {
     display: block;
     margin: var(--sides-only-small);
