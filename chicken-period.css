@@ -1,0 +1,16 @@
+.hideo {
+  position: fixed;
+  z-index: 9000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  color:chartreuse;
+  font-size: 64px;
+  font-family:'Courier New', Courier, monospace;
+}
+
+#follow-the-white-rabbit {
+  padding: var(--spacing-small);
+}

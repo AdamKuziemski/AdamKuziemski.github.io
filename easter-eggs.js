@@ -64,6 +64,7 @@
 function placeEggs() {
   document.addEventListener('keyup', checkKonamiCode);
   lambert();
+  matrix();
 }
 
 let konami = [];
@@ -101,7 +102,7 @@ function isKonamiCodeComplete() {
 function hideo() {
   const hideoOverlay = document.createElement('div');
   hideoOverlay.innerText = 'HIDEO';
-  hideoOverlay.classList.add('hideo');
+  hideoOverlay.classList.add('hideo', 'not-printed');
   document.body.appendChild(hideoOverlay);
 
   setTimeout(() => {
@@ -120,6 +121,42 @@ function lambert() {
   });
 }
 
+function matrix() {
+  const neo = document.getElementById('follow-the-white-rabbit');
+  const search = setInterval(async () => {
+    if (neo.style.display === 'none') {
+      return;
+    }
+
+    clearInterval(search);
+
+    await typeText(neo, 'Wake up, Neo...');
+    await typeText(neo, 'The Matrix has you...');
+    await typeText(neo, 'Follow the white rabbit.');
+
+    neo.innerText = 'Knock, knock, Neo.';
+    pickUpEgg('trinityHelp');
+
+    setTimeout(() => neo.style.display = 'none', 5000);
+  }, 500);
+}
+
+async function typeText(element, text) {
+  return new Promise(resolve => {
+    let index = 0;
+
+    const typing = setInterval(() => {
+      if (index === text.length) {
+        clearInterval(typing);
+        setTimeout(resolve, 3000);
+        return;
+      }
+
+      element.innerText = text.substr(0, ++index);
+    }, 150);
+  });
+}
+
 function pickUpEgg(name) {
   easterEggChecklist[name] = true;
 
@@ -132,4 +169,5 @@ const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft',
 const easterEggChecklist = {
   limerick: false,
   kojima: false,
+  trinityHelp: false
 };
