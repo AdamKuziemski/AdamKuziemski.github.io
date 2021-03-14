@@ -125,12 +125,13 @@ class ProgressBar {
    * Calculates % towards next birthday, based on current age
    * @param {number} age to calculate next birthday
    * @param {number} pointInTime at which the progress is based
-   * @returns percent of completion of the current level, capped between 0 and 100 inclusive
+   * @returns {number} percent of completion of the current level, capped between 0 and 100 inclusive
    */
   calculateProgressTowardsNextLevel(age, pointInTime) {
-    const year = new Date().getUTCFullYear();
-    const daysInYear = this.isLeapYear(year) || this.isLeapYear(year - 1) ? 366 : 365;
-    const percent = (100 - ((this.getNextBirthday(age) - pointInTime) / 864000) / daysInYear).toFixed(2);
+    const nextBirthday = this.getNextBirthday(age);
+    const lastBirthday = this.getNextBirthday(age, 0);
+    const daysInYear = this.daysBetween(lastBirthday, nextBirthday);
+    const percent = 100 - (((nextBirthday - pointInTime) / 864000) / daysInYear).toFixed(2);
     return Math.min(Math.max(percent, 0), 100);
   }
 
@@ -138,11 +139,12 @@ class ProgressBar {
    * @private
    * Calculates next birthday's Unix time
    * @param {number} age 
+   * @param {number} yearsForward how many years forward to set
    * @returns {number} Unix time of the next birthday
    */
-  getNextBirthday(age) {
+  getNextBirthday(age, yearsForward = 1) {
     return new Date(
-      this.birthday.getUTCFullYear() + age + 1,
+      this.birthday.getUTCFullYear() + age + yearsForward,
       this.birthday.getUTCMonth(), this.birthday.getUTCDate(),
       this.birthday.getUTCHours(), this.birthday.getUTCMinutes()
     ).getTime();
@@ -150,11 +152,25 @@ class ProgressBar {
 
   /**
    * @private
-   * Chcecks if it's a leap year
-   * @param {number} year
-   * @returns {boolean} whether the current age's day count should count as a leap year
+   * Calculates days between two dates
+   * @param {Date} startDate 
+   * @param {Date} endDate 
+   * @returns {number} Days between two dates
    */
-  isLeapYear(year) {
-    return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+  daysBetween(startDate, endDate) {
+    const millisecondsPerDay = 24 * 60 * 60 * 1000;
+    return (this.convertToUTC(endDate) - this.convertToUTC(startDate)) / millisecondsPerDay;
+  }
+
+  /**
+   * @private
+   * Converts date to UTC
+   * @param {Date} date 
+   * @returns {Date} Converted to UTC
+   */
+  convertToUTC(date) {
+    const result = new Date(date);
+    result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
+    return result;
   }
 }
