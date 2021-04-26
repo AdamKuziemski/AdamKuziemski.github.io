@@ -56,6 +56,12 @@
   }
 }
 
+@media (pointer: coarse) {
+  .tab-body {
+    margin-bottom: 64px;
+  }
+}
+
 @media print {
   #tab-bar {
     display: none;
