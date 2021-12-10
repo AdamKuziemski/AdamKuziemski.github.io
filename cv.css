@@ -61,6 +61,10 @@ section .section-title {
   margin: var(--spacing-small);
 }
 
+.print-only {
+  display: none;
+}
+
 #dark-mode-toggle {
   width: 20px;
   position: absolute;
@@ -129,5 +133,9 @@ section .section-title {
 
   .not-printed {
     display: none;
+  }
+
+  .print-only {
+    display: inline;
   }
 }
