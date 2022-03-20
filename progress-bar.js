@@ -1,3 +1,13 @@
+const jobTitles = [
+  'programmer',
+  'refactoring enthusiast',
+  'code smell detector',
+  'spaghetti miner',
+  'glorified code monkey',
+  'one-man code cleanup crew',
+  'CPU with legs'
+];
+
 class AnimatedText {
   /**
    * 
@@ -72,6 +82,8 @@ class ProgressBar {
       suffix: '% towards next level',
       duration: 600
     });
+    /** @private {string} */
+    this.job = jobTitles[Math.floor(Math.random() * jobTitles.length)];
 
     this.fill.style.width = '0%';
     this.setLevel();
@@ -106,7 +118,7 @@ class ProgressBar {
    * @param {number} age to set; defaults to calculateAge()
    */
   setLevel(age = this.calculateAge()) {
-    this.bar.title = `Level ${age} programmer`;
+    this.bar.title = `Level ${age} ${this.job}`;
   }
 
   /**
