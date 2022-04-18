@@ -7,7 +7,7 @@ const jobTitles = [
   'one-man code cleanup crew',
   'CPU with legs',
   '<div> aligner',
-  'negative margin hunger'
+  'negative margin hunter'
 ];
 
 class AnimatedText {
