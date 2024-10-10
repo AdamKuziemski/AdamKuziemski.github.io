@@ -9,6 +9,7 @@ const jobTitles = [
   '<div> aligner',
   'negative margin hunter',
   'Angular enjoyer',
+  'Angular aficionado',
   'RxJS proponent',
   'reinvented wheel spotter',
   'convoluted logic simplifier'
@@ -16,7 +17,7 @@ const jobTitles = [
 
 class AnimatedText {
   /**
-   * 
+   * Creates an instance of animated text in an element
    * @param {string} elementId to animate
    * @param {Object} options {value, prefix, suffix, duration]
    */
@@ -41,7 +42,7 @@ class AnimatedText {
    */
   setValue(newValue) {
     if (newValue !== this.value) {
-      this.animate(newValue);
+      this.#animate(newValue);
       this.value = newValue;
     }
   }
@@ -51,7 +52,7 @@ class AnimatedText {
    * animates text in the element
    * @param {number} newValue to animate towards
    */
-  animate(newValue) {
+  #animate(newValue) {
     const range = newValue - this.value;
     const startTime = performance.now();
     const endTime = startTime + this.duration;
@@ -92,7 +93,7 @@ class ProgressBar {
     this.job = jobTitles[Math.floor(Math.random() * jobTitles.length)];
 
     this.fill.style.width = '0%';
-    this.setLevel();
+    this.#setLevel();
 
     setInterval(() => this.setLevelAndExperience(), 1000);
   }
@@ -102,10 +103,10 @@ class ProgressBar {
    */
   setLevelAndExperience() {
     const today = new Date().getTime();
-    const age = this.calculateAge(today);
+    const age = this.#calculateAge(today);
 
-    this.setLevel(age);
-    this.setProgressBarFill(this.calculateProgressTowardsNextLevel(age, today));
+    this.#setLevel(age);
+    this.#setProgressBarFill(this.#calculateProgressTowardsNextLevel(age, today));
   }
 
   /**
@@ -114,7 +115,7 @@ class ProgressBar {
    * @param {number} pointInTime at which the age is calculated; defaults to new Date().getTime()
    * @returns {number} of years
    */
-  calculateAge(pointInTime = new Date().getTime()) {
+  #calculateAge(pointInTime = new Date().getTime()) {
     return new Date(pointInTime - this.birthday.getTime()).getUTCFullYear() - 1970;
   }
 
@@ -123,7 +124,7 @@ class ProgressBar {
    * Sets age in the progress bar
    * @param {number} age to set; defaults to calculateAge()
    */
-  setLevel(age = this.calculateAge()) {
+  #setLevel(age = this.#calculateAge()) {
     this.bar.title = `Level ${age} ${this.job}`;
   }
 
@@ -132,7 +133,7 @@ class ProgressBar {
    * Sets progress bar's fill width
    * @param {number} percent of the progress bar
    */
-  setProgressBarFill(percent) {
+  #setProgressBarFill(percent) {
     this.fill.style.width = percent + '%';
     this.hint.setValue(percent);
     this.bar.setAttribute('aria-valuenow', percent);
@@ -145,10 +146,10 @@ class ProgressBar {
    * @param {number} pointInTime at which the progress is based
    * @returns {number} percent of completion of the current level, capped between 0 and 100 inclusive
    */
-  calculateProgressTowardsNextLevel(age, pointInTime) {
-    const nextBirthday = this.getNextBirthday(age);
-    const lastBirthday = this.getNextBirthday(age, 0);
-    const daysInYear = this.daysBetween(lastBirthday, nextBirthday);
+  #calculateProgressTowardsNextLevel(age, pointInTime) {
+    const nextBirthday = this.#getNextBirthday(age);
+    const lastBirthday = this.#getNextBirthday(age, 0);
+    const daysInYear = this.#daysBetween(lastBirthday, nextBirthday);
     const percent = 100 - (((nextBirthday - pointInTime) / 864000) / daysInYear).toFixed(2);
     return Math.min(Math.max(percent, 0), 100);
   }
@@ -160,7 +161,7 @@ class ProgressBar {
    * @param {number} yearsForward how many years forward to set
    * @returns {number} Unix time of the next birthday
    */
-  getNextBirthday(age, yearsForward = 1) {
+  #getNextBirthday(age, yearsForward = 1) {
     return new Date(
       this.birthday.getUTCFullYear() + age + yearsForward,
       this.birthday.getUTCMonth(), this.birthday.getUTCDate(),
@@ -175,9 +176,9 @@ class ProgressBar {
    * @param {Date} endDate 
    * @returns {number} Days between two dates
    */
-  daysBetween(startDate, endDate) {
+  #daysBetween(startDate, endDate) {
     const millisecondsPerDay = 24 * 60 * 60 * 1000;
-    return (this.convertToUTC(endDate) - this.convertToUTC(startDate)) / millisecondsPerDay;
+    return (this.#convertToUTC(endDate) - this.#convertToUTC(startDate)) / millisecondsPerDay;
   }
 
   /**
@@ -186,7 +187,7 @@ class ProgressBar {
    * @param {Date} date 
    * @returns {Date} Converted to UTC
    */
-  convertToUTC(date) {
+  #convertToUTC(date) {
     const result = new Date(date);
     result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
     return result;
