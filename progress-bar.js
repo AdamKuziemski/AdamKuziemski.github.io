@@ -1,19 +1,19 @@
 const jobTitles = [
   'programmer',
-  // 'refactoring enthusiast',
-  // 'code smell detector',
-  // 'spaghetti miner',
-  // 'glorified code monkey',
-  // 'one-man code cleanup crew',
-  // 'CPU with legs',
-  // '<div> aligner',
-  // 'negative margin hunter',
-  // 'Angular enjoyer',
-  // 'Angular aficionado',
-  // 'RxJS proponent',
-  // 'reinvented wheel spotter',
-  // 'convoluted logic simplifier',
-  // 'aspiring architect'
+  'refactoring enthusiast',
+  'code smell detector',
+  'spaghetti miner',
+  'glorified code monkey',
+  'one-man code cleanup crew',
+  'CPU with legs',
+  '<div> aligner',
+  'negative margin hunter',
+  'Angular enjoyer',
+  'Angular aficionado',
+  'RxJS proponent',
+  'reinvented wheel spotter',
+  'convoluted logic simplifier',
+  'aspiring architect',
 ];
 
 class AnimatedText {
