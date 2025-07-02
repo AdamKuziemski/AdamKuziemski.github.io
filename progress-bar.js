@@ -14,6 +14,7 @@ const jobTitles = [
   'reinvented wheel spotter',
   'convoluted logic simplifier',
   'aspiring architect',
+  'digital plumber',
 ];
 
 class AnimatedText {

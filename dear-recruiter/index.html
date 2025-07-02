@@ -5,6 +5,7 @@
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <meta content="utf-8" http-equiv="encoding">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="author" content="Adam Kuziemski">
 
   <link rel="stylesheet" href="../variables.css" />
   <link rel="stylesheet" href="../card.css" />
@@ -19,9 +20,9 @@
 <body class="dear-recruiter">
   <header class="card">
     <h1>Dear Recruiter</h1>
-    <p>The following page is my <span class="en-us">CV</span>. It is a web app written in vanilla JS. I chose pure JS because I wanted to learn
-      more about it and for the site to be as light as possible. There's also a print-ready version provided below. But
-      before you decide what you'd like to see, take look at:</p>
+    <p class="intro">The following page is my <span class="en-us">CV</span>. It is a web app written in vanilla JS. I chose pure JS because I wanted to learn
+      more about it and for the site to be as light as possible. There's also a print-ready version provided below, with fewer details than there are on the live version.
+      But before you decide what you'd like to see, take look at:</p>
   </header>
 
   <main>
@@ -39,8 +40,7 @@
           <li>Its code is well documented.</li>
           <li>You can link to a specific tab, either by <a href="../index.html?tab=2">number</a> or <a
               href="../index.html?tab=skills">title</a>.</li>
-          <li>You can print it, if you turn off the margins and headers/footers. Chrome does it better than Firefox.
-          </li>
+          <li>You can print it, if you turn off the margins and headers/footers. Chrome does it better than Firefox.</li>
           <li>There are a couple of Easter Eggs, if you're interested ;)</li>
         </ul>
       </div>
@@ -48,50 +48,67 @@
 
     <section class="paths double-column-when-wide-enough">
       <article class="card center-content">
-        <a href="../index.html" class="proceed-link">See the <span class="en-us">CV</span></a>
+        <a href="../index.html" class="proceed-link">See the full <span class="en-us">CV</span></a>
       </article>
       <article class="card center-content">
-        <a href="../assets/cv.pdf" class="proceed-link">Just print</a>
+        <a href="../assets/cv.pdf" class="proceed-link">Just print (PDF)</a>
+      </article>
+    </section>
+
+    <section>
+      <header>
+        <h2>FAQ</h2>
+      </header>
+
+      <article class="card">
+        <header>
+          <h3 class="card-title">Tell us about a challenging JS/library/software bug you've dealt with.</h3>
+        </header>
+        <div class="card-content">
+          <p>There's a memory leak in Angular's custom form controls - basically if your component is a
+            custom control and gets destroyed, it's not always disconnected from the control object. We had a form control
+            that usually was a select but we needed it to sometimes be a text input instead. To get rid of the bug, I
+            captured the event that was used to change the control type, made it asynchronous to avoid change detection
+            glitches, then replaced the original control object with a new one. If I was to fix it in Angular itself, I'd
+            probably put all references to custom control components into a map under unique IDs, capture their destroy
+            lifecycle handlers, and disconnect them from the control object.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <header>
+          <h3 class="card-title">What tools and techniques do you use to improve code quality?</h3>
+        </header>
+        <div class="card-content">
+          <p>In my current project we use Gerrit to perform regular code reviews. In a pre-commit hook, we
+            use TSLint, Stylelint and Prettier, then Husky runs unit tests. Before I commit my changes, however, I try to
+            take a step back and read the code again. I ask myself questions such as: "Is it clear at first glance what this
+            variable is used for?", "Is there a more meaningful name for this class?", "Can I extract these `if` blocks into
+            separate functions?", or "Do I really need four parameters in this function?". These help me make my code easier
+            to understand and use.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <header>
+          <h3 class="card-title">Tell us about an engineering solution you've built that you're proud of.</h3>
+        </header>
+        <div class="card-content">
+          <p>I used to work for a client who heavily depended on SalesForce <strong>*shudder*</strong>. Our
+            app's configuration for different markets had been stored in the platform's custom metadata objects, which
+            started to be unsustainable - mainly because we'd almost reached its 10 MB (!) total limit - so I designed a new
+            system that utilized JSON objects, which were stored in the database. I essentially rebuilt everything related
+            to configuration from the ground up and got rid of redundancies in the old system. Following this design, we
+            wrote a couple of Java classes that enabled us to add new functionality, user roles, form fields, perform
+            migrations, etc. with a couple of lines of code and a single entry in the metadata. Then we built a
+            configurator app for the client side so that they could easily make changes without involving the product team.
+            We also took this opportunity to rebuild our app's configuration store to work with Promises, since until then
+            it was based around app-wide events which were unreliable and clunky at best. It's still being used to this day,
+            and we reduced the metadata usage by roughly 50 percentage points.</p>
+        </div>
       </article>
     </section>
   </main>
-
-  <article class="card">
-    <header>
-      <h2 class="card-title">FAQ</h2>
-    </header>
-    <div class="card-content">
-      <h3 class="question">Tell us about a challenging JS/library/software bug you've dealt with.</h3>
-      <p class="answer">There's a memory leak in Angular's custom form controls - basically if your component is a
-        custom control and gets destroyed, it's not always disconnected from the control object. We had a form control
-        that usually was a select but we needed it to sometimes be a text input instead. To get rid of the bug, I
-        captured the event that was used to change the control type, made it asynchronous to avoid change detection
-        glitches, then replaced the original control object with a new one. If I was to fix it in Angular itself, I'd
-        probably put all references to custom control components into a map under unique IDs, capture their destroy
-        lifecycle handlers, and disconnect them from the control object.</p>
-
-      <h3 class="question">What tools and techniques do you use to improve code quality?</h3>
-      <p class="answer">In my current project we use Gerrit to perform regular code reviews. In a pre-commit hook, we
-        use TSLint, Stylelint and Prettier, then Husky runs unit tests. Before I commit my changes, however, I try to
-        take a step back and read the code again. I ask myself questions such as: "Is it clear at first glance what this
-        variable is used for?", "Is there a more meaningful name for this class?", "Can I extract these `if` blocks into
-        separate functions?", or "Do I really need four parameters in this function?". These help me make my code easier
-        to understand and use.</p>
-
-      <h3 class="question">Tell us about an engineering solution you've built that you're proud of.</h3>
-      <p class="answer">I used to work for a client who heavily depended on SalesForce <strong>*shudder*</strong>. Our
-        app's configuration for different markets had been stored in the platform's custom metadata objects, which
-        started to be unsustainable - mainly because we'd almost reached its 10 MB (!) total limit - so I designed a new
-        system that utilized JSON objects, which were stored in the database. I essentially rebuilt everything related
-        to configuration from the ground up and got rid of redundancies in the old system. Following this design, we
-        wrote a couple of Java classes that enabled us to add new functionality, user roles, form fields, perform
-        migrations, etc. with a couple of lines of code and a single entry in the metadata. Then we built a
-        configurator app for the client side so that they could easily make changes without involving the product team.
-        We also took this opportunity to rebuild our app's configuration store to work with Promises, since until then
-        it was based around app-wide events which were unreliable and clunky at best. It's still being used to this day,
-        and we reduced the metadata usage by roughly 50 percentage points.</p>
-    </div>
-  </article>
 
   <script>
     window.onload = () => new DarkModeDetector(true);

@@ -3,6 +3,14 @@
   height: auto;
 }
 
+p {
+  text-align: justify;
+}
+
+.intro {
+  padding: 0 8px;
+}
+
 .paths {
   height: min-content;
 }
@@ -24,8 +32,4 @@
   font-size: 15px;
   line-height: 1.5;
   margin: 15px 0;
-}
-
-.answer {
-  padding-left: 8px;
 }
