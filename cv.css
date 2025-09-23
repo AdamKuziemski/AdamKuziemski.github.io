@@ -16,16 +16,16 @@ body {
   grid-template-areas: 
     "header"
     "tabs";
-}
 
-body > header {
-  position: relative;
-  grid-area: header;
-  text-align: center;
-}
-
-body > footer {
-  display: none;
+  > header {
+    position: relative;
+    grid-area: header;
+    text-align: center;
+  }
+  
+  > footer {
+    display: none;
+  }
 }
 
 p {
@@ -35,34 +35,39 @@ p {
 a {
   color: var(--secondary-color);
   text-decoration: none;
+
+  &:visited {
+    color: var(--clicked-color);
+  }
 }
 
-a:visited {
-  color: var(--clicked-color);
+a, input, button, select {
+  &:hover, &:focus {
+    font-weight: bold;
+  }
 }
 
-a:hover, input:hover, button:hover, select:hover,
-a:focus, input:focus, button:focus, select:focus {
-  font-weight: bold;
+h1 {
+  font-size: 22px;
+  margin: var(--spacing-small);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-section .section-title {
+section [section-title] {
   margin: var(--sides-only-small);
   line-height: 28px;
   font-size: 16px;
 }
 
-.my-name {
-  font-size: 22px;
-  margin: var(--spacing-small);
+[printed] {
+  display: none;
 }
 
-.print-only {
-  display: none;
+[clickable] {
+  cursor: pointer;
 }
 
 #dark-mode-toggle {
@@ -131,11 +136,11 @@ section .section-title {
     margin: 0 !important;
   }
 
-  .not-printed {
+  [not-printed] {
     display: none;
   }
 
-  .print-only {
+  [printed] {
     display: inline;
   }
 }

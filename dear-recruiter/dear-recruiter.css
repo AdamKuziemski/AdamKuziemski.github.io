@@ -15,7 +15,7 @@ p {
   height: min-content;
 }
 
-.paths > .card {
+.paths > [card] {
   padding-top: 0;
 }
 

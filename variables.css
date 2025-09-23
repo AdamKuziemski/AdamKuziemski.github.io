@@ -29,5 +29,5 @@
 
   --primary-color: #7d5ba6;
   --secondary-color: #ed7e07;
-  --clicked-color: #b25f06;
+  --clicked-color: hsl(from var(--secondary-color) h s calc(l * 0.75));
 }

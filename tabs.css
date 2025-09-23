@@ -3,41 +3,67 @@
   width: var(--full-without-spacing);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
+  [role="tab"] {
+    padding: var(--spacing-small);
+    text-align: center;
+    background: var(--element-background);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid var(--line-color);
+    cursor: pointer;
+    font-family: 'Fira Code', monospace;
+    font-size: 1em;
+    color: var(--text-color);
+  
+    &:focus {
+      outline: 1px solid var(--line-color);
+    }
+  
+    &[aria-selected="true"] {
+      border-bottom: 2px solid var(--primary-color);
+      transition: right var(--medium-slow) ease-in-out;
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid var(--line-color);
+    }
+
+    @supports (-webkit-overflow-scrolling: touch) {
+      padding-bottom: 64px;
+    }
+  }
 }
 
-#tab-bar > .tab:not(:last-child) {
-  border-right: 1px solid var(--line-color);
-}
-
-.tab {
-  padding: var(--spacing-small);
-  text-align: center;
-  background: var(--element-background);
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 2px solid var(--line-color);
-  cursor: pointer;
-  font-family: 'Fira Code', monospace;
-  font-size: 1em;
-  color: var(--text-color);
-}
-
-.tab:focus {
-  outline: 1px solid var(--line-color);
-}
-
-.tab[aria-selected="true"] {
-  border-bottom: 2px solid var(--primary-color);
-  transition: right var(--medium-slow) ease-in-out;
-}
-
-.tab-body {
+[role="tabpanel"] {
   position: relative;
-}
+  scroll-behavior: 'smooth';
 
-.tab-title {
-  display: none;
+  [tab-title] {
+    display: none;
+  }
+
+  @media (pointer: coarse) {
+    margin-bottom: 64px;
+  }
+
+  @media print {
+    display: block;
+
+    [tab-title] {
+      display: block;
+      margin: var(--sides-only-small);
+      line-height: 28px;
+      font-size: 1.25em;
+      font-weight: bold;
+    }
+
+    p {
+      line-height: 1.2em;
+      margin: var(--spacing-small) 0;
+    }
+  }
 }
 
 #tab-container {
@@ -48,18 +74,6 @@
 
 .tab-scrolled-top {
   box-shadow: inset 0 7px 9px -7px var(--line-color);
-}
-
-@supports (-webkit-overflow-scrolling: touch) {
-  .tab {
-    padding-bottom: 64px;
-  }
-}
-
-@media (pointer: coarse) {
-  .tab-body {
-    margin-bottom: 64px;
-  }
 }
 
 @media print {
@@ -75,22 +89,5 @@
 
   #skillz {
     margin-top: 20px;
-  }
-
-  .tab-body {
-    display: block;
-  }
-
-  .tab-body > .tab-title {
-    display: block;
-    margin: var(--sides-only-small);
-    line-height: 28px;
-    font-size: 1.25em;
-    font-weight: bold;
-  }
-
-  .tab-body p {
-    line-height: 1.2em;
-    margin: var(--spacing-small) 0;
   }
 }

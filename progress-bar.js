@@ -1,4 +1,4 @@
-const jobTitles = [
+const JOB_TITLES = [
   'programmer',
   'refactoring enthusiast',
   'code smell detector',
@@ -10,6 +10,7 @@ const jobTitles = [
   'negative margin hunter',
   'Angular enjoyer',
   'Angular aficionado',
+  'Rust rookie',
   'RxJS proponent',
   'reinvented wheel spotter',
   'convoluted logic simplifier',
@@ -78,30 +79,30 @@ class AnimatedText {
 }
 
 class ProgressBar {
-  constructor() {
-    /** @readonly @private {Date} */
-    this.birthday = new Date('12 Jan 1991 13:05');
-    /** @private {HTMLDivElement} */
-    this.bar = document.getElementById('progress-bar');
-    /** @private {HTMLDivElement} */
-    this.fill = document.getElementById('fill');
-    /** @private {AnimatedText} */
-    this.hint = new AnimatedText('percent-hint', {
-      value: 0,
-      suffix: '% towards next level',
-      duration: 600
-    });
-    /** @private {string} */
-    this.job = jobTitles[Math.floor(Math.random() * jobTitles.length)];
+  /** @readonly @private {Date} */
+  #birthday = new Date('12 Jan 1991 13:05');
+  /** @private {HTMLDivElement} */
+  #bar = document.getElementById('progress-bar');
+  /** @private {HTMLDivElement} */
+  #fill = document.getElementById('fill');
+  /** @private {AnimatedText} */
+  #hint = new AnimatedText('percent-hint', {
+    value: 0,
+    suffix: '% towards next level',
+    duration: 600
+  });
+  /** @private {string} */
+  #job = JOB_TITLES[Math.floor(Math.random() * JOB_TITLES.length)];
 
-    this.fill.style.width = '0%';
+  constructor() {
+    this.#fill.style.width = '0%';
     this.#setLevel();
 
     setInterval(() => this.setLevelAndExperience(), 1000);
   }
 
   /**
-   * sets age/level and adjusts the experience bar
+   * Sets age/level and adjusts the experience bar
    */
   setLevelAndExperience() {
     const today = new Date().getTime();
@@ -118,7 +119,7 @@ class ProgressBar {
    * @returns {number} of years
    */
   #calculateAge(pointInTime = new Date().getTime()) {
-    return new Date(pointInTime - this.birthday.getTime()).getUTCFullYear() - 1970;
+    return new Date(pointInTime - this.#birthday.getTime()).getUTCFullYear() - 1970;
   }
 
   /**
@@ -127,7 +128,7 @@ class ProgressBar {
    * @param {number} age to set; defaults to calculateAge()
    */
   #setLevel(age = this.#calculateAge()) {
-    this.bar.title = `Level ${age} ${this.job}`;
+    this.#bar.title = `Level ${age} ${this.#job}`;
   }
 
   /**
@@ -136,9 +137,9 @@ class ProgressBar {
    * @param {number} percent of the progress bar
    */
   #setProgressBarFill(percent) {
-    this.fill.style.width = percent + '%';
-    this.hint.setValue(percent);
-    this.bar.setAttribute('aria-valuenow', percent);
+    this.#fill.style.width = percent + '%';
+    this.#hint.setValue(percent);
+    this.#bar.setAttribute('aria-valuenow', percent);
   }
 
   /**
@@ -165,9 +166,9 @@ class ProgressBar {
    */
   #getNextBirthday(age, yearsForward = 1) {
     return new Date(
-      this.birthday.getUTCFullYear() + age + yearsForward,
-      this.birthday.getUTCMonth(), this.birthday.getUTCDate(),
-      this.birthday.getUTCHours(), this.birthday.getUTCMinutes()
+      this.#birthday.getUTCFullYear() + age + yearsForward,
+      this.#birthday.getUTCMonth(), this.#birthday.getUTCDate(),
+      this.#birthday.getUTCHours(), this.#birthday.getUTCMinutes()
     ).getTime();
   }
 

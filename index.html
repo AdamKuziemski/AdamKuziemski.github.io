@@ -4,7 +4,7 @@
 <head>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <meta content="utf-8" http-equiv="encoding">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Adam Kuziemski">
 
   <link rel="stylesheet" href="variables.css" />
@@ -21,12 +21,12 @@
 </head>
 
 <body>
-  <header class="card">
-    <h1 class="my-name">Adam Kuziemski</h1>
+  <header card>
+    <h1>Adam Kuziemski</h1>
 
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    <svg not-printed clickable version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
       viewBox="0 0 122.88 112.88" style="enable-background:new 0 0 122.88 112.88" xml:space="preserve"
-      id="dark-mode-toggle" class="not-printed" role="img" aria-labelledby="dark-mode-title dark-mode-desc">
+      id="dark-mode-toggle" role="img" aria-labelledby="dark-mode-title dark-mode-desc">
       <title id="dark-mode-title">Toggle dark mode</title>
       <desc id="dark-mode-desc">Click to toggle dark mode</desc>
       <style type="text/css">
@@ -43,129 +43,131 @@
 
     <div id="progress-bar" title="Level 0 programmer" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
       <div id="fill"></div>
-      <div id="percent-hint" class="not-printed">0% until next level</div>
+      <div id="percent-hint" not-printed>0% until next level</div>
     </div>
     <nav id="tab-bar" role="tablist">
-      <button class="tab" role="tab" id="about-tab" aria-controls="about-content" aria-selected="false">About</button>
-      <button class="tab" role="tab" id="skills-tab" aria-controls="skills-content"
+      <button role="tab" id="about-tab" aria-controls="about-content" aria-selected="false">About</button>
+      <button role="tab" id="skills-tab" aria-controls="skills-content"
         aria-selected="false">Skills</button>
-      <button class="tab" role="tab" id="personal-tab" aria-controls="personal-content" aria-selected="false">Personal</button>
+      <button role="tab" id="personal-tab" aria-controls="personal-content" aria-selected="false">Personal</button>
     </nav>
   </header>
 
   <main id="tab-container">
-    <section class="tab-body" id="about-content" role="tabpanel" aria-labelledby="about-tab">
-      <div class="tab-title">About me</div>
+    <section id="about-content" role="tabpanel" aria-labelledby="about-tab">
+      <div tab-title>About me</div>
 
-      <article class="card">
+      <article card>
         <header>
-          <h2 class="card-title">Contact info</h2>
+          <h2 card-title>Contact info</h2>
         </header>
-        <div class="card-content double-column-when-wide-enough">
-          <p>Mobile: <a href="tel:+48605-044-898">(+48) 605 044 898</a></p>
-          <p>E-mail: <a href="mailto:kuziemski.a@gmail.com">kuziemski.a@gmail.com</a></p>
-        </div>
+        <card-content>
+          <div class="double-column-when-wide-enough">
+            <p>Mobile: <a href="tel:+48605-044-898">(+48) 605 044 898</a></p>
+            <p>E-mail: <a href="mailto:kuziemski.a@gmail.com">kuziemski.a@gmail.com</a></p>
+          </div>
+        </card-content>
       </article>
 
-      <article class="card not-printed">
+      <article card not-printed>
         <header>
-          <h2 class="card-title">Links</h2>
+          <h2 card-title>Links</h2>
         </header>
-        <div class="card-content">
-          <a href="./assets/cv.pdf" target="_blank">Printable version of this CV (PDF)</a>
+        <card-content>
+          <p><a href="./assets/cv.pdf" target="_blank">Printable version of this CV (PDF)</a></p>
           <p><a href="https://github.com/AdamKuziemski">GitHub</a></p>
           <p><a href="https://www.linkedin.com/in/adam-kuziemski-01a75415a/">LinkedIn</a></p>
           <p><a href="https://www.codewars.com/users/GrimCuzzer">Codewars</a></p>
           <p><a href="https://pcpartpicker.com/list/bMkd4d">My rig</a> (<a
               href="https://pcpartpicker.com/list/kkMZgt">Goal</a>)</p>
-        </div>
+        </card-content>
       </article>
 
       <section id="experience">
         <header>
-          <h2 class="section-title">Experience <span class="print-only">(last two clients)</span></h2>
+          <h2 section-title>Experience <span printed>(last two clients; you can find more on my website)</span></h2>
         </header>
 
-        <article class="card">
+        <article card>
           <header>
-            <h3 class="card-title">Massive Pixel Creation / Placester</h3>
-            <div class="card-subtitle">01.09.2022 – 30.11.2024</div>
-            <div class="card-subtitle"><strong>Role:</strong> Team leader / Senior developer</div>
+            <h3 card-title>Massive Pixel Creation / Placester</h3>
+            <div card-subtitle>01.09.2022 – 30.11.2024</div>
+            <div card-subtitle><strong>Role:</strong> Team leader / Senior developer</div>
           </header>
-          <div class="card-content">
+          <card-content>
             <h4 class="project-name">Real estate agent app</h4>
-            <div class="card-subtitle">~240k LoC, hundreds of daily users</div>
+            <div card-subtitle>~240k LoC, hundreds of daily users</div>
             <p><strong>Tech stack:</strong> Nx, Angular 15, RxJS, NgRx, Elf, TypeScript, Sass, Jest, Ionic, Nest.js, Prisma, TypeORM, MySQL</p>
             <p><strong>Responsibilities:</strong> Driving implementation of new features (chat, sold listings, mobile app, CRM). Facilitating cooperation between teams.
               Planning and performing refactors of core components. Preparing releases. Performing code reviews. Sharing knowledge about the stack. Maintaining npm dependencies.</p>
-          </div>
+          </card-content>
         </article>
 
-        <article class="card not-printed">
+        <article card not-printed>
           <header>
-            <h3 class="card-title">Manerty</h3>
-            <div class="card-subtitle">01.08.2023 – 16.09.2023</div>
-            <div class="card-subtitle"><strong>Role:</strong> Senior full-stack developer (100h freelance contract)</div>
+            <h3 card-title>Manerty</h3>
+            <div card-subtitle>01.08.2023 – 16.09.2023</div>
+            <div card-subtitle><strong>Role:</strong> Senior full-stack developer (100h freelance contract)</div>
           </header>
-          <div class="card-content">
+          <card-content>
             <h4 class="project-name">Rental management app</h4>
-            <div class="card-subtitle">~40k LoC, MVP for a couple of clients</div>
+            <div card-subtitle>~40k LoC, MVP for a couple of clients</div>
             <p><strong>Tech stack:</strong>Angular 15, chart.js, RxJS, TypeScript, TailwindCSS, express, MongoDB</p>
             <p><strong>Responsibilities:</strong> Building reusable UI components for forms and navigation.
               Creating a reactive component to compare balance sheets and forms to create/edit rentals.</p>
-          </div>
+          </card-content>
         </article>
 
-        <article class="card">
+        <article card>
           <header>
-            <h3 class="card-title">B2BNetwork / Nordea Bank</h3>
-            <div class="card-subtitle">05.05.2021 – 29.04.2022</div>
-            <div class="card-subtitle"><strong>Role:</strong> Front-end developer</div>
+            <h3 card-title>B2BNetwork / Nordea Bank</h3>
+            <div card-subtitle>05.05.2021 – 29.04.2022</div>
+            <div card-subtitle><strong>Role:</strong> Front-end developer</div>
           </header>
-          <div class="card-content">
+          <card-content>
             <h4 class="project-name">Debit card ordering app</h4>
-            <div class="card-subtitle">~4k LoC, hundreds of daily users</div>
+            <div card-subtitle>~4k LoC, hundreds of daily users</div>
             <p><strong>Tech stack:</strong> Angular 12, RxJS, TypeScript, Sass, Jasmine, ngx-translate, Cypress, Java 11</p>
             <p><strong>Responsibilities:</strong> Refactoring an existing environment and settings system to reduce the time and effort required to introduce
               new locales. Implementing parts of the app flow for new locales. Coordinating with various teams across the company to deploy
               and deliver functionalities. General code quality improvements: adding strict typing, unit testing.</p>
 
             <h4 class="project-name">Loan conversion app</h4>
-            <div class="card-subtitle">~4k LoC, hundreds of daily users</div>
+            <div card-subtitle>~4k LoC, hundreds of daily users</div>
             <p><strong>Tech stack:</strong> Angular 12, RxJS, TypeScript, Sass, Jasmine, ngx-translate, Cypress, Java 11, AngularJS</p>
             <p><strong>Responsibilities:</strong> Implementing a simple state system to keep customer selection. Adjustments to improve accessibility. Unit testing
               components and services. Sharing knowledge about Angular and TypeScript features such as pipes, utility types, keyof, etc. Adjusting an old
               AngularJS app to include the conversion functionality and redirect to the new app.</p>
-          </div>
+          </card-content>
         </article>
 
-        <article class="card not-printed">
+        <article card not-printed>
           <header>
-            <h3 class="card-title">Crestt / Pekao</h3>
-            <div class="card-subtitle">04.11.2019 – 30.04.2021</div>
-            <div class="card-subtitle"><strong>Role:</strong> Front-end developer</div>
+            <h3 card-title>Crestt / Pekao</h3>
+            <div card-subtitle>04.11.2019 – 30.04.2021</div>
+            <div card-subtitle><strong>Role:</strong> Front-end developer</div>
           </header>
-          <div class="card-content">
+          <card-content>
             <h4 class="project-name">Banking app</h4>
-            <div class="card-subtitle">~415K LoC (app) + ~85K LoC (library), thousands of daily users</div>
+            <div card-subtitle>~415K LoC (app) + ~85K LoC (library), thousands of daily users</div>
             <p><strong>Tech stack:</strong> Angular 9, RxJS, NGXS, TypeScript, Sass, i18n, custom UI/utility library based on Material
               Design</p>
             <p><strong>Responsibilities:</strong> Implementing mailing functionality for customer support. Adjustments of existing
               customer facing functionality for use in customer support setting. Driving minor UI/UX changes. Designing
               and implementing a protocol based on window.postMessage to communicate between IFrames, mainly for SSO
               purposes. Adding and extending features in custom UI library.</p>
-          </div>
+          </card-content>
         </article>
 
-        <article class="card not-printed">
+        <article card not-printed>
           <header>
-            <h3 class="card-title">Accenture</h3>
-            <div class="card-subtitle">01.07.2017 – 31.10.2019</div>
-            <div class="card-subtitle"><strong>Role:</strong> Front-end developer</div>
+            <h3 card-title>Accenture</h3>
+            <div card-subtitle>01.07.2017 – 31.10.2019</div>
+            <div card-subtitle><strong>Role:</strong> Front-end developer</div>
           </header>
-          <div class="card-content">
+          <card-content>
             <h4 class="project-name">First project (August 2017 – May 2018)</h4>
-            <div class="card-subtitle">36K LoC, 2K unique logins per day during peak</div>
+            <div card-subtitle>36K LoC, 2K unique logins per day during peak</div>
             <p><strong>Tech stack:</strong> Angular 4, Material 4, Sass, TypeScript, RxJS, SalesForce
               (as a REST server/database), Cordova (for iOS builds), Webpack (for AWS S3)</p>
             <p><strong>Responsibilities:</strong> Development and maintenance of a hybrid mobile/web customer management app for
@@ -181,173 +183,173 @@
               drag-and-droppable layout component. Writing a tool to convert translation files from .xlsx into
               SalesForce's XML translation format. Introducing practices to improve code quality, such as using
               Array.map and .reduce instead of for loops, doing early returns, etc.</p>
-          </div>
+          </card-content>
         </article>
 
-        <article class="card not-printed">
+        <article card not-printed>
           <header>
-            <h3 class="card-title">Euro Cash sp. z o.o.</h3>
-            <div class="card-subtitle">01.09.2014 – 01.02.2016</div>
-            <div class="card-subtitle"><strong>Role:</strong> Webmaster/programmer</div>
+            <h3 card-title>Euro Cash sp. z o.o.</h3>
+            <div card-subtitle>01.09.2014 – 01.02.2016</div>
+            <div card-subtitle><strong>Role:</strong> Webmaster/programmer</div>
           </header>
-          <div class="card-content">
+          <card-content>
             <h4 class="project-name">Board game assistant app</h4>
-            <div class="card-subtitle">10K LoC (Java), ~400 downloads from Google Store</div>
+            <div card-subtitle>10K LoC (Java), ~400 downloads from Google Store</div>
             <p><strong>Tech stack:</strong> Android 4.2, Java, PHP (WordPress)</p>
             <p><strong>Responsibilities:</strong> Development of a mobile app for Android 4 as a tool for an educational
               board game about achieving financial independence. Features included a hot seat mode, automatic
               calculation of asset income, installments and salaries, etc. Maintenance of the
               website and creating a custom system for lead acquisition from company events.</p>
-          </div>
+          </card-content>
         </article>
       </section>
 
       <section id="education">
         <header>
-          <h2 class="section-title">Education</h2>
+          <h2 section-title>Education</h2>
         </header>
-        <article class="card">
+        <article card>
           <header>
-            <h3 class="card-title">Jan Długosz University in Częstochowa</h3>
-            <div class="card-subtitle">01.10.2012 – 06.2015</div>
+            <h3 card-title>Jan Długosz University in Częstochowa</h3>
+            <div card-subtitle>01.10.2012 – 06.2015</div>
           </header>
-          <div class="card-content">
+          <card-content>
             <p>Bachelor's in Philosophy (didn't graduate)</p>
-          </div>
+          </card-content>
         </article>
       </section>
     </section>
 
-    <section class="tab-body" id="skills-content" role="tabpanel" aria-labelledby="skills-tab">
-      <div class="tab-title" id="skillz">Skills</div>
+    <section id="skills-content" role="tabpanel" aria-labelledby="skills-tab">
+      <div tab-title id="skillz">Skills</div>
 
-      <div class="double-column-when-wide-enough">
-        <article class="card">
+      <card-content class="double-column-when-wide-enough">
+        <article card>
           <header>
-            <h2 class="card-title">JavaScript</h2>
-            <div class="card-subtitle">ES2022+</div>
+            <h2 card-title>JavaScript</h2>
+            <div card-subtitle>ES2022+</div>
           </header>
-          <div class="card-content">
+          <card-content>
             <p>TypeScript</p>
             <p>Node.js</p>
             <p>NestJS</p>
             <p>Bun (freshly picked up)</p>
-          </div>
+          </card-content>
         </article>
 
-        <article class="card">
+        <article card>
           <header>
-            <h2 class="card-title">Angular</h2>
-            <div class="card-subtitle">Versions 9-19, 8 or below if needed</div>
+            <h2 card-title>Angular</h2>
+            <div card-subtitle>Versions 9-19, 8 or below if needed</div>
           </header>
-          <div class="card-content">
+          <card-content>
             <p>Angular Material and CDK</p>
             <p>Karma/Jasmine</p>
             <p>RxJS</p>
             <p>Signals</p>
-          </div>
+          </card-content>
         </article>
 
-        <article class="card">
+        <article card>
           <header>
-            <h2 class="card-title">Styling/layout</h2>
+            <h2 card-title>Styling/layout</h2>
           </header>
-          <div class="card-content">
+          <card-content>
             <p>HTML5 and Semantic HTML</p>
             <p>CSS3</p>
             <p>CSS Grid</p>
             <p>CSS Variables</p>
             <p>Scss</p>
             <p>Responsive design</p>
-          </div>
+          </card-content>
         </article>
 
-        <article class="card">
+        <article card>
           <header>
-            <h2 class="card-title">Other</h2>
+            <h2 card-title>Other</h2>
           </header>
-          <div class="card-content">
+          <card-content>
             <p>English (TOEIC C1)</p>
             <p>Effective communication</p>
             <p>TDD, refactoring</p>
             <p>REST</p>
             <p>Git</p>
             <p>Scrum</p>
-          </div>
+          </card-content>
         </article>
 
-        <article class="card not-printed">
+        <article card not-printed>
           <header>
-            <h2 class="card-title">Teaching myself</h2>
-            <div class="card-subtitle">For professional growth and some fun</div>
+            <h2 card-title>Teaching myself</h2>
+            <div card-subtitle>For professional growth and some fun</div>
           </header>
-          <div class="card-content">
+          <card-content>
             <p>Software architecture</p>
             <p>A11Y</p>
             <p>Rust</p>
             <p><a href="https://rocket.rs/">Rocket</a></p>
             <p><a href="https://diesel.rs/">Diesel</a></p>
-          </div>
+          </card-content>
         </article>
 
-        <article class="card not-printed" id="follow-the-white-rabbit" style="display: none;"></article>
+        <article card not-printed id="follow-the-white-rabbit" style="display: none;"></article>
       </div>
     </section>
 
-    <section class="tab-body" id="personal-content" role="tabpanel" aria-labelledby="personal-tab">
-      <div class="tab-title">Personal</div>
+    <section id="personal-content" role="tabpanel" aria-labelledby="personal-tab">
+      <div tab-title>Personal</div>
 
-      <article class="card">
+      <article card>
         <header>
-          <h2 class="card-title">Personal project<span class="not-printed"> #1</span></h2>
-          <div class="card-subtitle">Project: Pet (May 2020 – present)</div>
-          <div class="card-subtitle">26K LoC (frontend), 31K LoC (backend), ~820 unit and integration tests</div>
+          <h2 card-title>Personal project<span not-printed> #1</span></h2>
+          <div card-subtitle>Project: Pet (May 2020 – present)</div>
+          <div card-subtitle>26K LoC (frontend), 31K LoC (backend), ~820 unit and integration tests</div>
         </header>
-        <div class="card-content">
+        <card-content>
           <p><strong>Tech stack:</strong> Angular 19, Angular Material 19, RxJS, ngx-translate, Jasmine, Cypress,
             Rust, Rocket 0.5, Diesel 2.2, PostgreSQL 16, Redis, Docker, Bun</p>
           <p>A web app for a cat shelter I volunteer at. The goal is to help volunteers organize things such as
             cats' vet visits, filling out prescriptions and tracking meds, everyday things that need to be
             done during shifts, planning tasks for future shifts, etc.
           </p>
-        </div>
+        </card-content>
       </article>  
 
-      <article class="card not-printed">
+      <article card not-printed>
         <header>
-          <h2 class="card-title">Personal project #2</h2>
-          <div class="card-subtitle"><a href="https://sixworlds.github.io/">Six Worlds</a> (05.10.2024 – 06.10.2024; continued in spare time)</div>
-          <div class="card-subtitle">1K LoC</div>
+          <h2 card-title>Personal project #2</h2>
+          <div card-subtitle><a href="https://sixworlds.github.io/">Six Worlds</a> (05.10.2024 – 06.10.2024; continued in spare time)</div>
+          <div card-subtitle>1K LoC</div>
         </header>
-        <div class="card-content">
+        <card-content>
           <p><strong>Tech stack:</strong>Python, Astroquery, Astropy, OpenCV, three.js</p>
           <p>A hackathon project at <a href="https://www.spaceappschallenge.org/nasa-space-apps-2024/">NASA Space Apps 2024</a>. We built a small app
             to visualize what the night sky would look like if you were standing on one of the many exoplanets discovered by astronomers and space missions.
             We used OpenCV to generate the skybox for the website and sky maps for downloading and printing.</p>
-        </div>
+        </card-content>
       </article>
 
-      <article class="card not-printed">
+      <article card not-printed>
         <header>
-          <h2 class="card-title">Personal project #3</h2>
-          <div class="card-subtitle">Dialogues and Dragons (March 2018 – May 2020; suspended for now)</div>
-          <div class="card-subtitle">5.5K LoC</div>
+          <h2 card-title>Personal project #3</h2>
+          <div card-subtitle>Dialogues and Dragons (March 2018 – May 2020; suspended for now)</div>
+          <div card-subtitle>5.5K LoC</div>
         </header>
-        <div class="card-content">
+        <card-content>
           <p><strong>Tech stack:</strong> Angular 11, Angular Material 11, RxJS, Jasmine</p>
           <p>A web app that lets users create content for games. Inspired by Bethesda Softworks® Creation Kit.
             Features include creating/editing items, NPCs, quests and dialogue trees. Currently
             working on improvements to a system that will let content creators decide what happens when, for
             example, a dialogue option is chosen or an item is used.</p>
-        </div>
+        </card-content>
       </article>
 
-      <div class="double-column-when-wide-enough">
-        <article class="card">
+      <card-content class="double-column-when-wide-enough">
+        <article card>
           <header>
-            <h2 class="card-title">Interests/hobbies</h2>
+            <h2 card-title>Interests/hobbies</h2>
           </header>
-          <div class="card-content">
+          <card-content>
             <p>Programming</p>
             <p>Music (Maschine, bass, guitar, beatboxing, collecting vinyls)</p>
             <p>Reading</p>
@@ -358,28 +360,28 @@
             <p>Juggling</p>
             <p>Mechanical keyboards</p>
             <p>Crocheting</p>
-          </div>
+          </card-content>
         </article>
 
-        <article class="card">
+        <article card>
           <header>
-            <h2 class="card-title">Random facts</h2>
+            <h2 card-title>Random facts</h2>
           </header>
-          <div class="card-content">
-            <p>I live with three cats. <a href="./assets/kittenz.jpg" class="not-printed">Exhibit A</a> <a href="./assets/dzidek.jpg" class="not-printed">Exhibit B</a></p>
+          <card-content>
+            <p>I live with three cats. <a href="./assets/kittenz.jpg" not-printed>Exhibit A</a> <a href="./assets/dzidek.jpg" not-printed>Exhibit B</a></p>
             <p>I volunteer at <a href="http://kotylion.pl/">Kotylion</a>.</p>
             <p>I have an IQ of 145 (Cattell scale), if that amounts to anything.</p>
             <p>I use a <a href="https://www.keychron.com/products/keychron-q11-qmk-custom-mechanical-keyboard">Keychron Q11</a> as my daily driver.</p>
-            <p class="not-printed">I also have an <a href="https://ergodox-ez.com/">ErgoDox EZ</a> with
+            <p not-printed>I also have an <a href="https://ergodox-ez.com/">ErgoDox EZ</a> with
                 <a href="https://zealpc.net/products/sakurio-roselio">Sakurios 62g</a>.
                 <a href="https://configure.ergodox-ez.com/ergodox-ez/layouts/9wGLj/latest/0">Here's</a> my latest layout.
             </p>
             <p>I lived in the UK for a year and most people didn't realise I wasn't British.</p>
             <p>My reading list will last me about 50 years.</p>
-            <p class="not-printed">I've achieved a 1463 day streak in Melodics.</p>
+            <p not-printed>I've achieved a 1463 day streak in Melodics.</p>
             <p>I like spicy things.</p>
-            <p class="not-printed">No animal was hurt in the process of making this.</p>
-          </div>
+            <p not-printed>No animal was hurt in the process of making this.</p>
+          </card-content>
         </article>
       </div>
     </section>

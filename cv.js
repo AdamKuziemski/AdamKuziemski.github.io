@@ -26,6 +26,10 @@
 	}
 
 	window.onwheel = (event) => {
+		if (event.target.tagName !== 'HTML') {
+      return;
+    }
+
 		tabs.scroll(event);
 	}
 })();

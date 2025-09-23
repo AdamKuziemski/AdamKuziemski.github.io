@@ -9,35 +9,33 @@
   background-color: var(--background);
   border: 1px solid var(--line-color);
   border-radius: 0.2rem;
-}
 
-#progress-bar::before {
-  content: attr(title);
-  font-size: 0.8rem;
-  position: absolute;
-  text-align: center;
-  top: 5px;
-  left: 0;
-  right: 0;
-}
+  &::before {
+    content: attr(title);
+    font-size: 0.8rem;
+    position: absolute;
+    text-align: center;
+    top: 5px;
+    left: 0;
+    right: 0;
+  }
 
-#progress-bar > #fill {
-  background-color: var(--primary-color);
-  height: 100%;
-  display: inline-block;
-  transition: width var(--slow) cubic-bezier(.45, 0, 0, 1);
-}
+  > #fill {
+    background-color: var(--primary-color);
+    height: 100%;
+    display: inline-block;
+    transition: width var(--slow) cubic-bezier(.45, 0, 0, 1);
+  }
 
-#progress-bar > #percent-hint {
-  color: var(--hint-color);
-  position: relative;
-  text-align: right;
-  font-size: 0.6rem;
-  top: -4px;
-}
+  > #percent-hint {
+    color: var(--hint-color);
+    position: relative;
+    text-align: right;
+    font-size: 0.6rem;
+    top: -4px;
+  }
 
-@media print {
-  #progress-bar {
+  @media print {
     border: none;
     margin: 0;
   }

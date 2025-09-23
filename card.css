@@ -1,44 +1,45 @@
-.card {
+[card] {
   margin: var(--spacing-small);
   padding-top: var(--spacing-small);
   border: 1px solid var(--line-color);
   box-shadow: var(--mat-shadow);
   border-radius: 0.2em;
   background-color: var(--element-background);
-}
 
-.card .card-title {
-  font-size: 1.1em;
-  font-weight: bold;
-}
+  [card-title] {
+    font-size: 1.1em;
+    font-weight: bold;
+  }
 
-.card .project-name {
-  font-size: 0.95em;
-  font-weight: bold;
-}
+  [card-subtitle] {
+    font-size: 0.8em;
+  }
 
-.card .card-subtitle {
-  font-size: 0.8em;
-}
+  card-content {
+    display: block;
+    padding: var(--sides-only-small);
 
-.card > header {
-  padding: var(--sides-only-small);
-  border-bottom: 1px solid var(--line-color);
-}
+    > h4:first-child {
+      margin-top: var(--spacing-small);
+    }
+  }
 
-.card > header :last-child {
-  margin-bottom: var(--spacing-small);
-}
+  .project-name {
+    font-size: 0.95em;
+    font-weight: bold;
+  }
 
-.card > footer {
-  padding: var(--sides-only-small);
-  border-top: 1px solid var(--line-color);
-}
+  > header {
+    padding: var(--sides-only-small);
+    border-bottom: 1px solid var(--line-color);
 
-.card .card-content {
-  padding: var(--sides-only-small);
-}
+    :last-child {
+      margin-bottom: var(--spacing-small);
+    }
+  }
 
-.card-content > h4:first-child {
-  margin-top: var(--spacing-small);
+  > footer {
+    padding: var(--sides-only-small);
+    border-top: 1px solid var(--line-color);
+  }
 }
