@@ -61,6 +61,7 @@ class TabComponent {
 
     this.#setIndicator(index);
     this.#displayChild(index);
+    this.#setUrlParam(index);
 
     this.#tabsContainer.scrollTop = 0;
     this.#hideOrDisplayScrollShadow();
@@ -297,8 +298,8 @@ class TabComponent {
    * 
    * @param {MouseEvent} event coming from the clicked tab
    */
-  #openClicked(event) {
-    this.openTab(this.#tabs.findIndex(tab => tab.innerText === event.target.innerText));
+  #openClicked({ target: { innerText } }) {
+    this.openTab(this.#tabs.findIndex(tab => tab.innerText === innerText));
   }
 
   /**
@@ -366,6 +367,18 @@ class TabComponent {
    */
   #doesNotHaveTab(index) {
     return index < 0 || index >= this.#tabs.length;
+  }
+
+  /**
+   * @private
+   * Sets the `tab` URL param to match the clicked tab
+   * @param {number} index of the tab to set
+  */
+  #setUrlParam(index) {
+    const { innerText } = this.#tabs[index];
+    const [currentUrl] = window.location.href.split(/[?#]/);
+
+    history.pushState({ tab: innerText }, void 0, `${currentUrl}?tab=${innerText.toLocaleLowerCase()}`);
   }
 
   /**

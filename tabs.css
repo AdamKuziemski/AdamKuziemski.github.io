@@ -14,9 +14,9 @@
     border-bottom: 2px solid var(--line-color);
     cursor: pointer;
     font-family: 'Fira Code', monospace;
-    font-size: 1em;
+    font-size: var(--text-medium);
     color: var(--text-color);
-  
+
     &:focus {
       outline: 1px solid var(--line-color);
     }
@@ -37,6 +37,7 @@
 }
 
 [role="tabpanel"] {
+  margin-bottom: 64px;
   position: relative;
   scroll-behavior: 'smooth';
 
@@ -44,23 +45,20 @@
     display: none;
   }
 
-  @media (pointer: coarse) {
-    margin-bottom: 64px;
-  }
-
   @media print {
     display: block;
+    margin-bottom: 0;
 
     [tab-title] {
       display: block;
-      margin: var(--sides-only-small);
-      line-height: 28px;
-      font-size: 1.25em;
+      font-size: var(--text-enlarged);
       font-weight: bold;
+      line-height: 28px;
+      margin: var(--sides-only-medium);
     }
 
     p {
-      line-height: 1.2em;
+      line-height: 1.2rem;
       margin: var(--spacing-small) 0;
     }
   }
@@ -88,6 +86,7 @@
   }
 
   #skillz {
-    margin-top: 20px;
+    /** basically just force it onto the next page **/
+    margin-top: 80px;
   }
 }

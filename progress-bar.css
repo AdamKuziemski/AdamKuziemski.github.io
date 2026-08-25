@@ -8,11 +8,11 @@
 
   background-color: var(--background);
   border: 1px solid var(--line-color);
-  border-radius: 0.2rem;
+  border-radius: .2rem;
 
   &::before {
     content: attr(title);
-    font-size: 0.8rem;
+    font-size: var(--text-x-small);
     position: absolute;
     text-align: center;
     top: 5px;
@@ -31,7 +31,7 @@
     color: var(--hint-color);
     position: relative;
     text-align: right;
-    font-size: 0.6rem;
+    font-size: .6rem;
     top: -4px;
   }
 

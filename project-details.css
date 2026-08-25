@@ -1,0 +1,155 @@
+project-details {
+  display: block;
+
+  @media screen and (min-width: 600px), print {
+    display: grid;
+    gap: 4px;
+    grid-template-columns: 1fr 144px;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      'name stack'
+      'stats stack'
+      'job stack'
+    ;
+
+    [project-name] {
+      font-size: var(--text-small);
+      grid-area: name;
+    }
+
+    [stats] {
+      grid-area: stats;
+      font-size: var(--text-x-small);
+    }
+
+    [stack] {
+      grid-area: stack;
+    }
+
+    [responsibilities],[description] {
+      grid-area: job;
+    }
+  }
+}
+
+details {
+  /* Keep this line to prevent an odd blue outline around the element in Safari. */
+  overflow: hidden;
+
+  summary {
+    cursor: pointer;
+    font-weight: bold;
+
+    &::marker {
+      font-size: .75em;
+    }
+  }
+
+  @media (pointer: coarse) {
+    margin-top: 1rem;
+
+    &[open] {
+      summary::after {
+        content: '(Tap to close)';
+        float: right;
+      }
+    }
+
+    &:not([open]) {
+      summary::after {
+        content: '(Tap to expand)';
+        float: right;
+      }
+    }
+  }
+
+  ul {
+    padding-inline-start: 2rem;
+  }
+}
+
+header[fancy] {
+  align-items: baseline;
+  display: grid;
+  grid-template-areas:
+    'job'
+    'dates'
+    'role'
+    'extra'
+    'stats';
+
+  @media screen and (min-width: 600px), print {
+    grid-template-areas:
+      'job dates'
+      'role extra'
+      'stats stats';
+
+    [dates], [extra] {
+      text-align: right;
+    }
+  }
+
+  [card-title] {
+    grid-area: job;
+  }
+
+  [dates] {
+    grid-area: dates;
+
+    &::before {
+      content: '📅';
+      margin-right: .5rem;
+    }
+  }
+
+  [role],[project] {
+    grid-area: role;
+  }
+
+  [extra] {
+    grid-area: extra;
+  }
+
+  [stats] {
+    font-size: var(--text-x-small);
+    grid-area: stats;
+  }
+}
+
+@media print {
+  project-details[linear-print] {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'name'
+      'stats'
+      'stack'
+      'job';
+    
+    summary {
+      display: inline-block;
+      list-style-position: outside;
+      margin: 0;
+      padding: 0;
+
+      &::after {
+        content: ':';
+      }
+    }
+
+    ul {
+      list-style-type: none;
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: inline-block;
+
+        &:not(:last-of-type)::after {
+          content: ',';
+        }
+      }
+    }
+  }
+}

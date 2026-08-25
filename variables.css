@@ -2,8 +2,16 @@
 
 :root {
   --spacing-small: 8px;
+  --spacing-medium: 16px;
   --sides-only-small: 0 var(--spacing-small);
+  --sides-only-medium: 0 var(--spacing-medium);
   --full-without-spacing: calc(100% - 2 * var(--spacing-small));
+
+  --text-x-large: 1.5rem; /* 24px */
+  --text-large: 1.25rem; /* 20px */
+  --text-medium: 1rem; /* 16px */
+  --text-small: .875rem; /* 14px */
+  --text-x-small: .75rem; /* 12px */
 
   --background: #f8f8f8;
   --text-color: #222222;
@@ -16,8 +24,8 @@
   --clicked-color: #7d5ba6;
 
   --mat-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
-  --medium-slow: 0.3s;
-  --slow: 0.6s;
+  --medium-slow: .3s;
+  --slow: .6s;
 }
 
 :root.dark-mode {

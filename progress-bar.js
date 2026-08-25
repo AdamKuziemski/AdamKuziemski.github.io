@@ -14,8 +14,10 @@ const JOB_TITLES = [
   'RxJS proponent',
   'reinvented wheel spotter',
   'convoluted logic simplifier',
-  'aspiring architect',
+  'aspiring software architect',
   'digital plumber',
+  'digital entomologist',
+  'aspiring rocket surgeon',
 ];
 
 class AnimatedText {

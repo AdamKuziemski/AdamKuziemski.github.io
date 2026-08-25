@@ -12,5 +12,12 @@
 }
 
 #follow-the-white-rabbit {
+  font-size: var(--text-small);
   padding: var(--spacing-small);
+}
+
+#conductor {
+  color: var(--text-color);
+  text-decoration: none;
+  cursor: default;
 }
