@@ -151,6 +151,7 @@ section [section-title] {
   }
 
   body > footer {
+    background-color: transparent;
     display: block;
     font-size: var(--text-x-small);
     text-align: center;
